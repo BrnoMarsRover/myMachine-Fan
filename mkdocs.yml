@@ -1,0 +1,23 @@
+site_name: My Machine Chodící Větrák
+site_description: Dokumentace k projektu MyMachine - Chodící Větrák
+
+repo_name: BrnoMarsRover/myMachine-Fan
+repo_url: https://github.com/BrnoMarsRover/myMachine-Fan
+edit_uri: edit/main/docs/
+
+theme:
+  name: readthedocs
+
+nav:
+  - Home: index.md
+  - Big Picture: big_picture.md
+  - Konstrukce:
+      - Komponenty: construction/komponenty.md
+      - Návody: construction/navody.md
+  - Hardware:
+      - Pinout: hardware/pinout.md
+      - Top board:
+          - Popis: hardware/pinout.md
+          - BOM: hardware/pinout.md
+  - Software:
+      - Motivace: software/example.md
