@@ -10,10 +10,10 @@ theme:
 
 nav:
   - Home: index.md
-  - Big Picture: big_picture.md
-  - Konstrukce:
-      - Komponenty: construction/komponenty.md
-      - Návody: construction/navody.md
+  - Dětský Vynález: big_picture.md
+  - Komponenty:
+      - Nákupní seznam: construction/komponenty.md
+      - Rozborka větráku: construction/rozborka.md
   - Hardware:
       - Pinout: hardware/pinout.md
       - Top board:
