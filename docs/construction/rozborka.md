@@ -30,4 +30,14 @@ Samotný mechanismus s tlačítkem je složen z několika dílů. Dávejte při 
 Na poprvé to bude možná trochu zápas, zkuste si hned po rozložení mechanismus opět složit, aby jste si zapamatovali, jak do sebe zapadá.
 ![Kryt baterie 10](../images/rozborka/10.jpg)
 
-Po celé délce sloupku bude nutné nahoru k motorům v budoucnu vyvést i signálový kabel k LED pásku.
+Pro správné protažení signálového kabelu pro LED pásek a připojení napájení k LED pásku budeme potřebovat rozebrat i samotnou konstrukci ventilátoru. Odšroubujeme tak tedy 4 šrouby po vnějším okraji. Tři šrouby uprostřed drží pouze DC motor a není třeba je vyšroubovávat.
+![Kryt baterie 11](../images/rozborka/11.jpg)
+
+Zbytek sloupku ohneme následujícím způsobem a celý válcový plášť stáhneme směrem doleva. Není potřeba používat žádnou sílu, ta byla potřeba pouze na poprvé, tlačítka už jsem za vás ulomil :).
+![Kryt baterie 12](../images/rozborka/12.jpg)
+
+Uvnitř nás čekají 3 konektory, přičemž ten 3-pinový je napájecí. Pokud chceme rozebrat konektor vedoucí od sloupku, musíme ho odpojit a prostřčit směrem zpět
+![Kryt baterie 13](../images/rozborka/13.jpg)
+
+Kabel lze skulinou prostrčit zpět, což nám umožní rozebrat konektor sloupku obdobným způsobem jako předtím.
+![Kryt baterie 14](../images/rozborka/14.jpg)
