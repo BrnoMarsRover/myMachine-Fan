@@ -16,8 +16,20 @@
 | Bílý filament         | 569,-  |                                        [Prusa3D](https://www.prusa3d.com/cs/produkt/prusament-pla-pristine-white-1kg/)                                         |      Ano      |
 | Ložisko ke klobouku   | 134,-  |                                                   [Mateza](https://www.mateza.cz/e-shop/lozisko-zkl-51101a)                                                    |      Ano      |
 | 2x Ložisko pro kola   |  34,-  |                                              [Mateza](https://www.mateza.cz/e-shop/kulickove-lozisko-zkl-626-2z)                                               |      Ano      |
-
-Celková cena **6676,-** s DPH bez poštovného, která nezahrnuje následující.
+| Prototypovací PCB 3x  |  48,-  |                                              [Laskakit](https://www.laskakit.cz/40x60mm-oboustranna-pcb-prototypova-deska/)                                    |      Ne       |
+| 20x Konektory JST-XH 4-pinové pravoúhlé |  12,-  |                                              [Laskakit](https://www.laskakit.cz/jst-xh-2-54mm-konektor-do-dps--pravouhly/)                   |      Ne       |
+| 10x Konektory JST-XH 2-pinové pravoúhlé |  6,-  |                                              [Laskakit](https://www.laskakit.cz/jst-xh-2-54mm-konektor-do-dps--pravouhly/)                    |      Ne       |
+| 10x Konektory JST-XH 4-pinové |  6,-  |                                              [Laskakit](https://www.laskakit.cz/jst-xh-2-54mm-konektor-do-dps/)                                         |      Ne       |
+| Vodiče od každé barvy 1x |  350,-  |                                              [Laskakit](https://www.laskakit.cz/propojovaci-vodice-20cm-100-kusu/?variantId=16604)                         |      Ne       |
+| 50x Pin pro konektor |  50,-  |                                              [Laskakit](https://www.laskakit.cz/pin-pro-konektor-jst-xh/)                                                       |      Ne       |
+| 20x Tělo konektoru 4-pinové |  20,-  |                                              [Laskakit](https://www.laskakit.cz/jst-xh-2-54mm-telo-konektoru/?variantId=5360)                            |      Ne       |
+| 20x Tělo konektoru 2-pinové |  10,-  |                                              [Laskakit](https://www.laskakit.cz/jst-xh-2-54mm-telo-konektoru/?variantId=5360)                            |      Ne       |
+| Sada na výrobu konektorů |  96,-  |                                              [Laskakit](https://www.laskakit.cz/laskakit-sada-jst-sm-konektoru-40ks/)                                       |      Ne       |
+| (náhradní) ESP32 Vývojová deska  | 198,-  |                                 [Laskakit](https://www.laskakit.cz/iot-esp-32s-2-4ghz-dual-mode-wifi-bluetooth-rev-1--cp2102/)                      |      Ne       |
+| 20x konektor |  36,-  |                                              [Kondik](https://www.kondik.cz/kontakt-43030-0001-pro-konektory-micro-fit/)                                                |      Ne       |
+| 10x konektor |  49,-  |                                              [Kondik](https://www.kondik.cz/kontakt-43031-0001-pro-konektory-micro-fit/)                                                |      Ne       |
+| 10x konektor |  15,-  |                                              [Kondik](https://www.kondik.cz/kontakt-mini-fit-5556-t3/)                                                                  |      Ne       |
+| 20x konektor |  30,-  |                                              [Kondik](https://www.kondik.cz/kontakt-mini-fit-5558-t3/)                                                                  |      Ne       |
 
 - Střední škola vyrobí poncho a mexický klobouk (pokud je v jejich možnostech). Klobouk přibližně 110mm v průměru, 120mm
   na výšku. Na přesných rozměrech až tak nezáleží.
