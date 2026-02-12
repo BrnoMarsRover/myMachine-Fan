@@ -15,9 +15,6 @@ nav:
       - Nákupní seznam: construction/komponenty.md
       - Rozborka větráku: construction/rozborka.md
   - Hardware:
-      - Pinout: hardware/pinout.md
-      - Top board:
-          - Popis: hardware/pinout.md
-          - BOM: hardware/pinout.md
+      - Schéma: hardware/pinout.md
   - Software:
-      - Motivace: software/example.md
+      - ESP32 program: software/sw.md
