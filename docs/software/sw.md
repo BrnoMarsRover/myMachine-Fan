@@ -41,10 +41,13 @@ void loop() {
 ## Seznam doporučených knihoven
 Knihovny lze instalovat pomocí *Library manager* (vlevo)
 
-- BLE-Gamepad-Client
-- Adafruit Neopixel
+- [BLE-Gamepad-Client](https://github.com/tbekas/BLE-Gamepad-Client)
+- [Adafruit Neopixel](https://github.com/adafruit/Adafruit_NeoPixel)
+- [Ultrasonic](https://github.com/ErickSimoes/Ultrasonic)
 
-### Ovládání motorů
+Na stránkách knihoven jsou i ukázky použití 
+
+## Ovládání motorů
 Motory lze řídit pomocí příkazu  ```analogWrite(pin, hodnota)```.
 
 Kdy hodnota je číslo od 0 (netočí) po 255 (maximální rychlost). Směr se určuje podle pinu (R_PWM jeden směr, L_PWM druhý), na kterém danou hodnotu nastavím, viz schéma.
