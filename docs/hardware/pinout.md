@@ -1,1 +1,3 @@
-## Původní myšlenka
+## Schéma zapojení
+
+![Schéma zapojení](mymachine.svg)
