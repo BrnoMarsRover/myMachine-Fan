@@ -1,3 +1,3 @@
 ## Schéma zapojení
 
-![Schéma zapojení](mymachine.svg)
+![Schéma zapojení](mymachine.drawio.svg)
