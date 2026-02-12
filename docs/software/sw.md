@@ -49,11 +49,18 @@ Motory lze řídit pomocí příkazu  ```analogWrite(pin, hodnota)```.
 
 Kdy hodnota je číslo od 0 (netočí) po 255 (maximální rychlost). Směr se určuje podle pinu (R_PWM jeden směr, L_PWM druhý), na kterém danou hodnotu nastavím, viz schéma.
 
-**Pozor**: Nenastavujte nikdy otáčení do obou směrů zároveň, např. 
+**Pozor**: Nenastavujte nikdy otáčení do obou směrů zároveň, jinak by mohlo dojít k poškození driveru!
 ```cpp
+// Špatně
 analogWrite(R_PWM, 100);
 analogWrite(L_PWM, 50);
+
+// Správně
+analogWrite(R_PWM, 100);
+analogWrite(L_PWM, 0);
+
+analogWrite(R_PWM, 0);
+analogWrite(L_PWM, 50);
 ```
-Jinak by mohlo dojít k poškození driveru! 
 
 
