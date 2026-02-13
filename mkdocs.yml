@@ -16,5 +16,6 @@ nav:
       - Rozborka větráku: construction/rozborka.md
   - Hardware:
       - Schéma: hardware/pinout.md
+      - Připravené komponenty: hardware/hw.md
   - Software:
       - ESP32 program: software/sw.md
