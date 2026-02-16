@@ -144,7 +144,8 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="navod-na-zapojeni">Návod na zapojení</h1>
-<p>Tato stránka popisuje, jak správně propojit všechny elektronické komponenty. Před zapojením si prostudujte <a href="../pinout/">schéma zapojení</a>.</p>
+<p>Tato stránka popisuje, jak správně propojit všechny elektronické komponenty. Před zapojením si
+prostudujte <a href="../pinout/">schéma zapojení</a>.</p>
 <h2 id="prehled-pinu-esp32">Přehled pinů ESP32</h2>
 <table>
 <thead>
@@ -174,37 +175,66 @@
 <td>RPWM (motor #1 – směr vpřed)</td>
 <td>Nikdy nenastavovat současně s LPWM!</td>
 </tr>
+<tr>
+<td>25</td>
+<td>BTS7960B #2</td>
+<td>LPWM (motor #2 – směr vzad)</td>
+<td>Nikdy nenastavovat současně s RPWM!</td>
+</tr>
+<tr>
+<td>26</td>
+<td>BTS7960B #2</td>
+<td>RPWM (motor #2 – směr vpřed)</td>
+<td>Nikdy nenastavovat současně s LPWM!</td>
+</tr>
+<tr>
+<td>19</td>
+<td>HC-SR05 #1</td>
+<td>TRIG</td>
+<td>Levý senzor</td>
+</tr>
+<tr>
+<td>18</td>
+<td>HC-SR05 #1</td>
+<td>ECHO</td>
+<td>Levý senzor</td>
+</tr>
+<tr>
+<td>5</td>
+<td>HC-SR05 #2</td>
+<td>TRIG</td>
+<td>Pravý senzor</td>
+</tr>
+<tr>
+<td>17</td>
+<td>HC-SR05 #2</td>
+<td>ECHO</td>
+<td>Pravý senzor</td>
+</tr>
 </tbody>
 </table>
-<!-- TODO: Doplnit skutečné GPIO piny pro druhý motor -->
-<p>| ??? | BTS7960B #2 | LPWM (motor #2 – směr vzad) | Zvolit volný GPIO pin |
-| ??? | BTS7960B #2 | RPWM (motor #2 – směr vpřed) | Zvolit volný GPIO pin |</p>
-<!-- TODO: Doplnit skutečné GPIO piny pro ultrazvukové senzory -->
-<p>| ??? | HC-SR05 #1 | TRIG | Přední senzor |
-| ??? | HC-SR05 #1 | ECHO | Přední senzor |
-| ??? | HC-SR05 #2 | TRIG | Zadní senzor (pokud je použit) |
-| ??? | HC-SR05 #2 | ECHO | Zadní senzor (pokud je použit) |</p>
-<p>!!! warning "Výběr GPIO pinů"
-    Ne všechny piny ESP32 jsou vhodné pro výstup. Vyhněte se pinům <strong>6–11</strong> (připojeny k interní flash), piny <strong>34, 35, 36, 39</strong> jsou pouze vstupní. Doporučené volné piny pro výstup: <strong>25, 26, 27, 14, 12, 13, 4, 16, 17, 18, 19, 21, 22</strong>.</p>
 <h2 id="napajeni">Napájení</h2>
 <p>Zařízení používá <strong>24V baterii</strong> z původního větráku. Z ní se napájí všechny komponenty:</p>
 <pre><code>Baterie 24V
 ├── Motor driver BTS7960B #1 (přímo 24V)
 ├── Motor driver BTS7960B #2 (přímo 24V)
-├── Step-down LM2596 #1 → 5V → ESP32 (přes VIN pin)
+├── Step-down LM2596 #1 → 5V → ESP32 (přes VIN (5V) pin)
 └── Step-down LM2596 #2 → 3.7V → LED pásek WS2812 (měnič v hlavici)
 </code></pre>
 <h3 id="postup-nastaveni-step-down-menicu">Postup nastavení step-down měničů</h3>
-<p>Měniče LM2596 mají na sobě potenciometr (malý šroubek). <strong>Před připojením komponent</strong> je nutné:</p>
+<p>Měniče LM2596 mají na sobě trimr. <strong>Před připojením komponent</strong> je nutné:</p>
 <ol>
 <li>Připojit vstup měniče na 24V</li>
 <li>Multimetrem měřit výstupní napětí</li>
-<li>Šroubovákem otáčet potenciometrem, dokud nedosáhnete požadovaného napětí:</li>
+<li>Šroubovákem otáčet trimrem, dokud nedosáhnete požadovaného napětí:<ul>
 <li>Měnič pro ESP32: <strong>5V</strong></li>
 <li>Měnič pro LED pásek: <strong>3.7V</strong></li>
+</ul>
+</li>
 <li>Teprve potom připojit komponenty na výstup</li>
 </ol>
-<p><strong>Pozor:</strong> Nikdy nepřipojujte ESP32 nebo LED pásek na měnič, dokud nemáte ověřené správné výstupní napětí! 24V by je okamžitě zničilo.</p>
+<p><strong>Pozor:</strong> Nikdy nepřipojujte ESP32 nebo LED pásek na měnič, dokud nemáte ověřené správné výstupní napětí! 24V by je
+okamžitě zničilo.</p>
 <h2 id="zapojeni-motor-driveru-bts7960b">Zapojení motor driverů (BTS7960B)</h2>
 <p>Každý motor driver má tyto důležité piny:</p>
 <table>
@@ -249,12 +279,12 @@
 <tr>
 <td>R_EN</td>
 <td>5V nebo ESP32 GPIO</td>
-<td>Enable pravý (lze propojit na 5V pro trvalé povolení)</td>
+<td>Enable pravý (je propojeno na 5V pro trvalé povolení)</td>
 </tr>
 <tr>
 <td>L_EN</td>
 <td>5V nebo ESP32 GPIO</td>
-<td>Enable levý (lze propojit na 5V pro trvalé povolení)</td>
+<td>Enable levý (je propojeno na 5V pro trvalé povolení)</td>
 </tr>
 <tr>
 <td>GND</td>
@@ -267,7 +297,7 @@
 <h3 id="schema-zapojeni-jednoho-motoru">Schéma zapojení jednoho motoru</h3>
 <pre><code>ESP32 GPIO (RPWM) ──────► BTS7960B RPWM
 ESP32 GPIO (LPWM) ──────► BTS7960B LPWM
-ESP32 GND ───────────────► BTS7960B GND
+GND 5V měniče ───────────────► BTS7960B GND
 5V ──────────────────────► BTS7960B R_EN + L_EN
 
 Baterie 24V+ ────────────► BTS7960B B+
@@ -283,24 +313,20 @@ BTS7960B M- ─────────────► Motor vodič 2
 <thead>
 <tr>
 <th>Vodič</th>
-<th>Barva (typicky)</th>
 <th>Kam zapojit</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>VCC</td>
-<td>Červený</td>
 <td>Výstup step-down měniče 3.7V (v hlavici)</td>
 </tr>
 <tr>
 <td>GND</td>
-<td>Bílý/Černý</td>
 <td>GND step-down měniče</td>
 </tr>
 <tr>
 <td>DIN (data)</td>
-<td>Zelený</td>
 <td>GPIO 23 na ESP32 (žlutý drát vedený trubkou)</td>
 </tr>
 </tbody>
@@ -313,7 +339,8 @@ BTS7960B M- ─────────────► Motor vodič 2
 <li>Datový (signálový) vodič propojte se žlutým drátem, který je vedený trubkou konstrukce dolů k podvozku</li>
 <li>Ve spodní části žlutý drát propojte s GPIO 23 na ESP32</li>
 </ol>
-<p><strong>Pozor na směr pásku!</strong> Na pásku jsou malé šipky – data tečou ve směru šipek. Připojte DIN na začátek pásku (kde šipky začínají).</p>
+<p><strong>Pozor na směr pásku!</strong> Na pásku jsou malé šipky – data tečou ve směru šipek. Připojte DIN na začátek pásku (kde šipky
+začínají).</p>
 <h2 id="zapojeni-ultrazvukovych-senzoru-hc-sr05">Zapojení ultrazvukových senzorů (HC-SR05)</h2>
 <p>Každý senzor má 4 funkční piny:</p>
 <table>
@@ -343,8 +370,6 @@ BTS7960B M- ─────────────► Motor vodič 2
 </tbody>
 </table>
 <p>Senzory jsou vtlačeny do připravených děr v podvozku (nejsou šroubované).</p>
-<!-- TODO: Doplnit, kam přesně senzory směřují (vpřed? vpřed + vzad? do stran?) -->
-
 <h2 id="pajeni-na-prototypovaci-pcb">Pájení na prototypovací PCB</h2>
 <p>V podvozku jsou dva univerzální plošné spoje (prototypovací PCB) pro propojení komponent.</p>
 <h3 id="doporuceny-postup-pajeni">Doporučený postup pájení:</h3>
@@ -352,13 +377,13 @@ BTS7960B M- ─────────────► Motor vodič 2
 <li><strong>Nejdříve</strong> napájet pinové lišty / konektory JST-XH na PCB</li>
 <li>Propojit napájecí větve (24V, 5V, GND) silnějšími vodiči</li>
 <li>Zapojit signálové vodiče z ESP32 ke konektorům</li>
-<li>Před prvním zapnutím zkontrolovat multimetrem:</li>
+<li>Před prvním zapnutím zkontrolovat multimetrem:<ul>
 <li>Že mezi VCC a GND není zkrat</li>
 <li>Že napájecí větve mají správné napětí</li>
+</ul>
+</li>
 <li>ESP32 připojit jako poslední (po ověření napětí)</li>
 </ol>
-<!-- TODO: Přidat fotky hotového PCB s popisem, co je kam zapájeno -->
-
 <h2 id="spolecna-zem">Společná zem</h2>
 <p>Všechny komponenty musí sdílet společnou zem (GND):</p>
 <ul>
@@ -394,7 +419,7 @@ BTS7960B M- ─────────────► Motor vodič 2
 <tr>
 <td>Chybějící společná zem</td>
 <td>Motory/LED nereagují</td>
-<td>Propojit všechny GND</td>
+<td>Propojit všechny GND (stačí skrze zem měniče)</td>
 </tr>
 <tr>
 <td>Oba směry motoru aktivní současně</td>
@@ -402,9 +427,9 @@ BTS7960B M- ─────────────► Motor vodič 2
 <td>V kódu vždy jeden pin na 0</td>
 </tr>
 <tr>
-<td>Špatný směr LED pásku</td>
-<td>Pásek nesvítí</td>
-<td>Sledovat šipky na pásku</td>
+<td>Napájení LED pásku</td>
+<td>Pásek nesvítí, nebo se při programování chová nepředvídatelně</td>
+<td>LED pásek musí být napájen napětím maximálně 4V, pak již nereaguje správně na řidící signál 3.3V</td>
 </tr>
 <tr>
 <td>Nepájený studený spoj</td>

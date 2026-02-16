@@ -71,7 +71,7 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#krok-6-montaz-ultrazvukovych-senzoru">Krok 6: Montáž ultrazvukových senzorů</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#krok-7-nasazeni-sloupku-a-protazeni-kabelu">Krok 7: Nasazení sloupku a protažení kabelů</a>
+    <li class="toctree-l2"><a class="reference internal" href="#krok-7-kontrola-kabelaze-sloupku">Krok 7: Kontrola kabeláže sloupku</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#krok-8-montaz-hlavice-dc-dc-menic-a-led-pasek">Krok 8: Montáž hlavice – DC-DC měnič a LED pásek</a>
     </li>
@@ -148,18 +148,19 @@
 <!-- TODO: Přidat fotku vytištěného podvozku -->
 
 <ol>
-<li>Vytiskněte všechny díly podvozku podle <a href="../3d_tisk/">návodu na 3D tisk</a></li>
-<li>Odstraňte podpěry a začistěte hrany (pilníkem nebo nožem)</li>
-<li>Vložte <strong>opěrné kuličky</strong> (5 ks) do připravených otvorů na spodní straně podvozku – kuličky zajišťují stabilitu a umožňují volný pohyb</li>
-<li>Vložte <strong>ložiska do kol</strong> (2× ZKL 626-2Z) do připravených otvorů pro osy</li>
+<li>Podvozek obdržíte <strong>již vytištěný</strong> (vyžaduje velkoformátovou tiskárnu) – zkontrolujte, že nemá poškození z přepravy</li>
+<li>Pokud je potřeba, začistěte hrany (pilníkem nebo nožem)</li>
+<li>Přišroubujte <strong>opěrné kuličky</strong> (4 ks) do připravených otvorů na spodní straně podvozku – kuličky zajišťují stabilitu a umožňují volný pohyb</li>
+<li>Vložte <strong>ložiska do kol</strong> (2× ZKL 626-2Z) do připravených otvorů pro osy. Díry pro ložiska jsou záměrně tištěná bez vůlí, bude třeba je lehce protáhnout pilníkem, aby ložisko uvnitř nelítalo</li>
 </ol>
 <h2 id="krok-2-montaz-motoru-a-kol">Krok 2: Montáž motorů a kol</h2>
 <!-- TODO: Přidat fotku namontovaných motorů -->
 
 <ol>
 <li>Vložte oba motory <strong>JGY-370</strong> do připravených úchytů v podvozku</li>
-<li>Připevněte motory šroubky ze spodní strany</li>
-<li>Nasaďte kola na hřídele motorů</li>
+<li>Připevněte motory šroubky ze spodní strany za pomoci dodaných plasových držáků</li>
+<li>Dle výkresu obrobte příruby spojující osu motoru s kolem</li>
+<li>Sestavte uchycení kola, zajistěte ložisko 3D tištěným dílem a červíky zajistěte kolo a osu motoru</li>
 <li>Zkontrolujte, že se kola volně otáčejí a nebrzdí o podvozek</li>
 </ol>
 <h2 id="krok-3-priprava-elektroniky-na-prototypovacim-pcb">Krok 3: Příprava elektroniky na prototypovacím PCB</h2>
@@ -179,39 +180,42 @@
 <!-- TODO: Přidat fotku motor driverů v podvozku -->
 
 <ol>
-<li>Umístěte oba moduly <strong>BTS7960B</strong> do podvozku</li>
+<li>Umístěte oba moduly <strong>BTS7960B</strong> do podvozku drivery jsou dodávány s chladiči, pro naše motory by ale neměly být třeba a tak pro ně ani není navrhnuté dostatečné místo</li>
 <li>Připevněte šroubky</li>
 <li>Propojte motor drivery s PCB pomocí připravených konektorů:</li>
-<li>Napájení (24V)</li>
-<li>Signálové vodiče (RPWM, LPWM, EN)</li>
-<li>GND</li>
-<li>Připojte vodiče motorů k výstupům M+/M- na motor driverech</li>
+<li>Výkonové napájení (24V) a GND</li>
+<li>Signálové napájení (5V) a GND</li>
+<li>
+<p>Signálové vodiče (RPWM, LPWM)</p>
+</li>
+<li>
+<p>Připojte vodiče motorů k výstupům M+/M- na motor driverech</p>
+</li>
 </ol>
 <h2 id="krok-5-osazeni-esp32">Krok 5: Osazení ESP32</h2>
 <!-- TODO: Přidat fotku ESP32 v podvozku -->
 
 <ol>
 <li>ESP32 umístěte na PCB (ideálně do dutinkové patice, aby šla snadno vyměnit)</li>
-<li>Propojte s napájením (5V z měniče na VIN pin, GND)</li>
+<li>Propojte s napájením (5V z měniče na VIN (5V) pin, GND)</li>
 <li><strong>Před zapnutím</strong> zkontrolujte multimetrem napětí na step-down měniči (musí být 5V!)</li>
 <li>Zapojte signálové vodiče ke konektorům na PCB</li>
 </ol>
 <h2 id="krok-6-montaz-ultrazvukovych-senzoru">Krok 6: Montáž ultrazvukových senzorů</h2>
 <ol>
-<li>Senzory <strong>HC-SR05</strong> vtlačte do připravených otvorů v podvozku (nejsou šroubované, drží třením)</li>
+<li>Senzory <strong>HC-SR05</strong> vtlačte do připravených otvorů v podvozku (nejsou šroubované) zajistit je po odzkoušení celého zařízení můžete například tavnou pistolí</li>
 <li>Připojte konektory senzorů na PCB (VCC, GND, TRIG, ECHO)</li>
 </ol>
 <!-- TODO: Přidat fotku senzorů v podvozku, doplnit kam přesně směřují -->
 
-<h2 id="krok-7-nasazeni-sloupku-a-protazeni-kabelu">Krok 7: Nasazení sloupku a protažení kabelů</h2>
+<h2 id="krok-7-kontrola-kabelaze-sloupku">Krok 7: Kontrola kabeláže sloupku</h2>
 <p>Toto je klíčový krok – sloupek spojuje podvozek s hlavicí větráku a vedou jím kabely.</p>
 <ol>
-<li>Protáhněte sloupkem:</li>
-<li><strong>Napájecí kabel</strong> (24V pro motor ventilátoru a DC-DC měnič v hlavici)</li>
+<li>Sloupkem jsou protaženy:</li>
+<li><strong>Napájecí kabel</strong> (24V pro motor ventilátoru a 3.7V DC-DC měnič v hlavici, GND)</li>
 <li><strong>Žlutý signálový drát</strong> pro LED pásek (datový pin GPIO 23)</li>
-<li>Připojte konektory na obou koncích kabelu (spodní + horní)</li>
-<li>Nasaďte sloupek na podvozek a zajistěte aretačními šroubky</li>
-<li>Postup rozebírání/skládání konektorů ve sloupku viz <a href="../rozborka/">rozborka</a></li>
+<li>Zkontrolujte kontinuitou multimetru, že je mezi základnou a hlavicí kontakt.</li>
+<li>Případný postup rozebírání/skládání konektorů ve sloupku viz <a href="../rozborka/">rozborka</a>.</li>
 </ol>
 <p><img alt="LED konektor v hlavici" src="../../images/hw/LED_konektor_hlavice.jpg" />
 <img alt="LED konektor v podstavci" src="../../images/hw/LED_konektor_baze.jpg" /></p>
@@ -224,9 +228,9 @@
 <p><img alt="Pozice DC-DC měniče" src="../../images/hw/dcdc_misto.jpg" /></p>
 <ol>
 <li>LED pásek <strong>WS2812</strong> připevněte utahovacími pásky podél obvodu klece větráku</li>
-<li><strong>Pozor na směr!</strong> Šipky na pásku ukazují směr toku dat</li>
+<li><strong>Pozor na kabeláž, není moc kvalitní</strong></li>
 <li>Datový vstup (DIN) připojte na žlutý signálový drát z trubky</li>
-<li>Napájení (VCC + GND) připojte na výstup DC-DC měniče</li>
+<li>Napájení (VCC + GND) připojte na výstup DC-DC měniče (3.7V)</li>
 </ol>
 <p><img alt="LED pásek na kleci" src="../../images/hw/LED_pasek.jpg" /></p>
 <ol>
@@ -236,12 +240,7 @@
 <ol>
 <li>Vložte baterii zpět do přihrádky (pozor na pogo piny!)</li>
 <li>Zapněte zařízení</li>
-<li>LED pásek by měl začít červeně pulzovat (čeká na spárování ovladače)</li>
-<li>Spárujte Xbox ovladač – LED by se měly rozsvítit barevně</li>
-<li>Otestujte:</li>
-<li>Motory reagují na joystick</li>
-<li>LED režimy se přepínají tlačítky A/B/X/Y</li>
-<li>Pokud něco nefunguje, viz <a href="../../troubleshooting/">Řešení problémů</a></li>
+<li>Ověřte, že všechny komponenty opravdu dostávají korektní napájecí napětí a jsou propojeny přes datové vodiče všude, kde je třeba.</li>
 </ol>
 <h2 id="krok-10-nadobka-na-bonbony">Krok 10: Nádobka na bonbóny</h2>
 <!-- TODO: Doplnit popis umístění nádobky – je součástí 3D tištěných dílů -->
@@ -249,7 +248,7 @@
 
 <ol>
 <li>Připevněte 3D tištěnou nádobku na bonbóny na určené místo na zařízení</li>
-<li>Zkontrolujte, že nádobka nebrání otáčení kol ani ventilátoru</li>
+<li>V procesu je třeba provrtat sloupek a 3D tištěný díl zajistit osičkou. Bylo by dobré na její konce opatřit závity a zajistit ji tak proti vysunutí</li>
 </ol>
 <h2 id="krok-11-nasazeni-mexickeho-kostymu">Krok 11: Nasazení mexického kostýmu</h2>
 <ol>
@@ -263,7 +262,7 @@
 </ol>
 <p>Podrobnosti viz <a href="../kostym/">Kostým a dekorace</a>.</p>
 <h2 id="hotovo">Hotovo!</h2>
-<p>Pokud jste úspěšně prošli všemi kroky, máte sestaveného mexického chodícího větráka. Kompletní návod k ovládání najdete v sekci <a href="../../manual/">Návod k obsluze</a>.</p>
+<p>Pokud jste úspěšně prošli všemi kroky, máte sestaveného mexického "chodící" větrák. Nyní je třba opatřit ho příslušným ovládacím SW.</p>
               
             </div>
           </div><footer>

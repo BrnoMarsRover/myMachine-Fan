@@ -13,18 +13,19 @@ Tento návod popisuje krok za krokem, jak sestavit celé zařízení od jednotli
 
 <!-- TODO: Přidat fotku vytištěného podvozku -->
 
-1. Vytiskněte všechny díly podvozku podle [návodu na 3D tisk](3d_tisk.md)
-2. Odstraňte podpěry a začistěte hrany (pilníkem nebo nožem)
-3. Vložte **opěrné kuličky** (5 ks) do připravených otvorů na spodní straně podvozku – kuličky zajišťují stabilitu a umožňují volný pohyb
-4. Vložte **ložiska do kol** (2× ZKL 626-2Z) do připravených otvorů pro osy
+1. Podvozek obdržíte **již vytištěný** (vyžaduje velkoformátovou tiskárnu) – zkontrolujte, že nemá poškození z přepravy
+2. Pokud je potřeba, začistěte hrany (pilníkem nebo nožem)
+3. Přišroubujte **opěrné kuličky** (4 ks) do připravených otvorů na spodní straně podvozku – kuličky zajišťují stabilitu a umožňují volný pohyb
+4. Vložte **ložiska do kol** (2× ZKL 626-2Z) do připravených otvorů pro osy. Díry pro ložiska jsou záměrně tištěná bez vůlí, bude třeba je lehce protáhnout pilníkem, aby ložisko uvnitř nelítalo
 
 ## Krok 2: Montáž motorů a kol
 
 <!-- TODO: Přidat fotku namontovaných motorů -->
 
 1. Vložte oba motory **JGY-370** do připravených úchytů v podvozku
-2. Připevněte motory šroubky ze spodní strany
-3. Nasaďte kola na hřídele motorů
+2. Připevněte motory šroubky ze spodní strany za pomoci dodaných plasových držáků
+3. Dle výkresu obrobte příruby spojující osu motoru s kolem
+4. Sestavte uchycení kola, zajistěte ložisko 3D tištěným dílem a červíky zajistěte kolo a osu motoru
 4. Zkontrolujte, že se kola volně otáčejí a nebrzdí o podvozek
 
 ## Krok 3: Příprava elektroniky na prototypovacím PCB
@@ -45,12 +46,13 @@ V podvozku jsou dva univerzální plošné spoje. Na ně zapájíte konektory pr
 
 <!-- TODO: Přidat fotku motor driverů v podvozku -->
 
-1. Umístěte oba moduly **BTS7960B** do podvozku
+1. Umístěte oba moduly **BTS7960B** do podvozku drivery jsou dodávány s chladiči, pro naše motory by ale neměly být třeba a tak pro ně ani není navrhnuté dostatečné místo
 2. Připevněte šroubky
 3. Propojte motor drivery s PCB pomocí připravených konektorů:
-   - Napájení (24V)
-   - Signálové vodiče (RPWM, LPWM, EN)
-   - GND
+   - Výkonové napájení (24V) a GND
+   - Signálové napájení (5V) a GND
+   - Signálové vodiče (RPWM, LPWM)
+   
 4. Připojte vodiče motorů k výstupům M+/M- na motor driverech
 
 ## Krok 5: Osazení ESP32
@@ -58,27 +60,26 @@ V podvozku jsou dva univerzální plošné spoje. Na ně zapájíte konektory pr
 <!-- TODO: Přidat fotku ESP32 v podvozku -->
 
 1. ESP32 umístěte na PCB (ideálně do dutinkové patice, aby šla snadno vyměnit)
-2. Propojte s napájením (5V z měniče na VIN pin, GND)
+2. Propojte s napájením (5V z měniče na VIN (5V) pin, GND)
 3. **Před zapnutím** zkontrolujte multimetrem napětí na step-down měniči (musí být 5V!)
 4. Zapojte signálové vodiče ke konektorům na PCB
 
 ## Krok 6: Montáž ultrazvukových senzorů
 
-1. Senzory **HC-SR05** vtlačte do připravených otvorů v podvozku (nejsou šroubované, drží třením)
+1. Senzory **HC-SR05** vtlačte do připravených otvorů v podvozku (nejsou šroubované) zajistit je po odzkoušení celého zařízení můžete například tavnou pistolí
 2. Připojte konektory senzorů na PCB (VCC, GND, TRIG, ECHO)
 
 <!-- TODO: Přidat fotku senzorů v podvozku, doplnit kam přesně směřují -->
 
-## Krok 7: Nasazení sloupku a protažení kabelů
+## Krok 7: Kontrola kabeláže sloupku
 
 Toto je klíčový krok – sloupek spojuje podvozek s hlavicí větráku a vedou jím kabely.
 
-1. Protáhněte sloupkem:
-   - **Napájecí kabel** (24V pro motor ventilátoru a DC-DC měnič v hlavici)
+1. Sloupkem jsou protaženy:
+   - **Napájecí kabel** (24V pro motor ventilátoru a 3.7V DC-DC měnič v hlavici, GND)
    - **Žlutý signálový drát** pro LED pásek (datový pin GPIO 23)
-2. Připojte konektory na obou koncích kabelu (spodní + horní)
-3. Nasaďte sloupek na podvozek a zajistěte aretačními šroubky
-4. Postup rozebírání/skládání konektorů ve sloupku viz [rozborka](rozborka.md)
+2. Zkontrolujte kontinuitou multimetru, že je mezi základnou a hlavicí kontakt.
+3. Případný postup rozebírání/skládání konektorů ve sloupku viz [rozborka](rozborka.md).
 
 ![LED konektor v hlavici](../images/hw/LED_konektor_hlavice.jpg)
 ![LED konektor v podstavci](../images/hw/LED_konektor_baze.jpg)
@@ -92,9 +93,9 @@ Toto je klíčový krok – sloupek spojuje podvozek s hlavicí větráku a vedo
 ![Pozice DC-DC měniče](../images/hw/dcdc_misto.jpg)
 
 2. LED pásek **WS2812** připevněte utahovacími pásky podél obvodu klece větráku
-   - **Pozor na směr!** Šipky na pásku ukazují směr toku dat
+   - **Pozor na kabeláž, není moc kvalitní**
    - Datový vstup (DIN) připojte na žlutý signálový drát z trubky
-   - Napájení (VCC + GND) připojte na výstup DC-DC měniče
+   - Napájení (VCC + GND) připojte na výstup DC-DC měniče (3.7V)
 
 ![LED pásek na kleci](../images/hw/LED_pasek.jpg)
 
@@ -104,12 +105,7 @@ Toto je klíčový krok – sloupek spojuje podvozek s hlavicí větráku a vedo
 
 1. Vložte baterii zpět do přihrádky (pozor na pogo piny!)
 2. Zapněte zařízení
-3. LED pásek by měl začít červeně pulzovat (čeká na spárování ovladače)
-4. Spárujte Xbox ovladač – LED by se měly rozsvítit barevně
-5. Otestujte:
-   - Motory reagují na joystick
-   - LED režimy se přepínají tlačítky A/B/X/Y
-   - Pokud něco nefunguje, viz [Řešení problémů](../troubleshooting.md)
+3. Ověřte, že všechny komponenty opravdu dostávají korektní napájecí napětí a jsou propojeny přes datové vodiče všude, kde je třeba.
 
 ## Krok 10: Nádobka na bonbóny
 
@@ -117,7 +113,7 @@ Toto je klíčový krok – sloupek spojuje podvozek s hlavicí větráku a vedo
 <!-- TODO: Přidat fotku nádobky na bonbóny -->
 
 1. Připevněte 3D tištěnou nádobku na bonbóny na určené místo na zařízení
-2. Zkontrolujte, že nádobka nebrání otáčení kol ani ventilátoru
+2. V procesu je třeba provrtat sloupek a 3D tištěný díl zajistit osičkou. Bylo by dobré na její konce opatřit závity a zajistit ji tak proti vysunutí
 
 ## Krok 11: Nasazení mexického kostýmu
 
@@ -133,4 +129,4 @@ Podrobnosti viz [Kostým a dekorace](kostym.md).
 
 ## Hotovo!
 
-Pokud jste úspěšně prošli všemi kroky, máte sestaveného mexického chodícího větráka. Kompletní návod k ovládání najdete v sekci [Návod k obsluze](../manual.md).
+Pokud jste úspěšně prošli všemi kroky, máte sestaveného mexického "chodící" větrák. Nyní je třba opatřit ho příslušným ovládacím SW.

@@ -79,23 +79,25 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Návod k obsluze</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#zapnuti">Zapnutí</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#sparovani-ovladace">Spárování ovladače</a>
+    <li class="toctree-l2"><a class="reference internal" href="#zapnuti-a-pripojeni-ovladace">Zapnutí a připojení ovladače</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#ovladani-jizdy">Ovládání jízdy</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#led-efekty">LED efekty</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#nastaveni-led">Nastavení LED</a>
+    <li class="toctree-l3"><a class="reference internal" href="#ochrana-proti-narazu">Ochrana proti nárazu</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#omezeni-rychlosti">Omezení rychlosti</a>
     </li>
         </ul>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#led-efekty">LED efekty</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#rozvoz-bonbonu">Rozvoz bonbónů</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#bezpecnostni-chovani">Bezpečnostní chování</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#vypnuti">Vypnutí</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#bezpecnost">Bezpečnost</a>
+    <li class="toctree-l2"><a class="reference internal" href="#tipy-pro-provoz">Tipy pro provoz</a>
     </li>
     </ul>
                 </li>
@@ -129,23 +131,21 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="navod-k-obsluze">Návod k obsluze</h1>
-<p>Návod k ovládání hotového zařízení – mexického chodícího větráku.</p>
-<h2 id="zapnuti">Zapnutí</h2>
-<!-- TODO: Doplnit, kde přesně je vypínač / jak se zapíná baterie (původní tlačítko větráku?) -->
+<p>Tento dokument popisuje, jak má hotové zařízení fungovat z pohledu uživatele – tj. dětí na základní škole a jejich učitelů.</p>
+<p>Slouží zároveň jako <strong>specifikace chování</strong> pro středoškoláky, kteří budou psát výsledný program.</p>
+<hr />
+<h2 id="zapnuti-a-pripojeni-ovladace">Zapnutí a připojení ovladače</h2>
+<!-- TODO: Doplnit, kde přesně je vypínač / jak se zapíná baterie -->
 
 <ol>
 <li>Zapněte zařízení</li>
-<li>LED pásek začne <strong>červeně pulzovat</strong> – to znamená, že zařízení čeká na připojení ovladače</li>
-</ol>
-<h2 id="sparovani-ovladace">Spárování ovladače</h2>
-<ol>
+<li>LED pásek začne <strong>červeně pulzovat</strong> – zařízení čeká na ovladač</li>
 <li>Zapněte <strong>Xbox ovladač</strong> podržením tlačítka Xbox (logo uprostřed)</li>
-<li>Ovladač se automaticky připojí přes Bluetooth k ESP32</li>
-<li>Po úspěšném připojení LED pásek přestane červeně pulzovat a přepne se do aktivního režimu (barevné svícení)</li>
+<li>Ovladač se automaticky spáruje přes Bluetooth</li>
+<li>Po připojení LED pásek přejde do <strong>výchozího režimu</strong> (duhová animace) – zařízení je připraveno k jízdě</li>
 </ol>
-<!-- TODO: Ověřit, zda je při prvním párování potřeba speciální postup (párovací režim ovladače) -->
-
 <h2 id="ovladani-jizdy">Ovládání jízdy</h2>
+<p>Ovládání je navrženo tak, aby bylo intuitivní i pro děti – stačí <strong>jeden joystick</strong>:</p>
 <table>
 <thead>
 <tr>
@@ -163,21 +163,53 @@
 <td>Jízda vzad</td>
 </tr>
 <tr>
-<td>Pravý joystick ←</td>
+<td>Levý joystick ←</td>
 <td>Zatáčení doleva</td>
 </tr>
 <tr>
-<td>Pravý joystick →</td>
+<td>Levý joystick →</td>
 <td>Zatáčení doprava</td>
+</tr>
+<tr>
+<td>Levý joystick šikmo</td>
+<td>Kombinace – např. vpřed a doleva = oblouk doleva</td>
 </tr>
 </tbody>
 </table>
-<p>Rychlost jízdy závisí na tom, jak daleko joystick vychýlíte – mírné vychýlení = pomalá jízda, plné vychýlení = plná rychlost.</p>
-<p><strong>Poznámka:</strong> Zařízení má ultrazvukové senzory, které zabrání nárazu do překážky.</p>
-<!-- TODO: Doplnit, jak přesně senzory fungují – zastaví motor? Zpomalí? Zvukový signál? (záleží na implementaci) -->
-
+<ul>
+<li><strong>Rychlost</strong> závisí na vychýlení joysticku – mírné vychýlení = pomalá jízda, plné vychýlení = maximální (omezená) rychlost</li>
+<li><strong>Rozjezd je plynulý</strong> – zařízení nezačne okamžitě jet plnou rychlostí, ale postupně zrychluje, aby nedošlo k trhnutí nebo vysypání bonbónů</li>
+<li><strong>Zastavení je také plynulé</strong> – při puštění joysticku zařízení plynule zabrzdí</li>
+</ul>
+<h3 id="ochrana-proti-narazu">Ochrana proti nárazu</h3>
+<p>Zařízení má ultrazvukové senzory, které chrání před nárazem do překážek nebo osob:</p>
+<table>
+<thead>
+<tr>
+<th>Vzdálenost od překážky</th>
+<th>Chování</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Více než 40 cm</td>
+<td>Normální jízda</td>
+</tr>
+<tr>
+<td>40–15 cm</td>
+<td>Postupné zpomalování (čím blíž, tím pomalejší)</td>
+</tr>
+<tr>
+<td>Méně než 15 cm</td>
+<td>Úplné zastavení – vpřed nelze jet, lze pouze couvat nebo zatáčet pryč</td>
+</tr>
+</tbody>
+</table>
+<p>Senzory fungují pouze ve směru jízdy – brání nárazu vpřed, nebrání couvání.</p>
+<h3 id="omezeni-rychlosti">Omezení rychlosti</h3>
+<p>Maximální rychlost je programově omezena na přibližně <strong>60 % výkonu motorů</strong>. Zařízení rozváží bonbóny mezi dětmi, ne závodí – nízká rychlost zajišťuje bezpečnost a zabraňuje vysypání nákladu.</p>
 <h2 id="led-efekty">LED efekty</h2>
-<p>LED pásek kolem hlavice větráku podporuje 4 režimy, přepínané tlačítky:</p>
+<p>LED pásek kolem hlavice slouží jako dekorace a přitahuje pozornost dětí. Přepínání režimů je jednoduché – <strong>jedním tlačítkem</strong>:</p>
 <table>
 <thead>
 <tr>
@@ -189,76 +221,65 @@
 <tbody>
 <tr>
 <td><strong>A</strong></td>
-<td>Jednobarevné</td>
-<td>Celý pásek svítí jednou barvou – barvu měníte otáčením levého joysticku</td>
+<td>Jednobarevné svícení</td>
+<td>Celý pásek svítí jednou barvou</td>
 </tr>
 <tr>
 <td><strong>B</strong></td>
 <td>Pohyblivý bod</td>
-<td>Po pásku se pohybuje světelný bod</td>
+<td>Po pásku obíhá světelný bod s ocáskem</td>
 </tr>
 <tr>
 <td><strong>X</strong></td>
 <td>Duha</td>
-<td>Duhový gradient se plynule posouvá</td>
+<td>Plynule se posouvající duhový gradient (výchozí režim)</td>
 </tr>
 <tr>
 <td><strong>Y</strong></td>
 <td>Dýchání</td>
-<td>Jas plynule stoupá a klesá</td>
-</tr>
-</tbody>
-</table>
-<h3 id="nastaveni-led">Nastavení LED</h3>
-<table>
-<thead>
-<tr>
-<th>Ovládací prvek</th>
-<th>Funkce</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Pravý joystick ←→</td>
-<td>Rychlost animace (doleva = pomalá, doprava = rychlá)</td>
-</tr>
-<tr>
-<td>Pravý joystick ↑↓</td>
-<td>Jas LED (nahoru = jasnější, dolů = tmavší)</td>
-</tr>
-<tr>
-<td>Levý trigger (LT)</td>
-<td>V režimu dýchání přidává červenou</td>
-</tr>
-<tr>
-<td>Pravý trigger (RT)</td>
-<td>V režimu dýchání přidává modrou</td>
+<td>Jas plynule stoupá a klesá (efekt dýchání)</td>
 </tr>
 </tbody>
 </table>
 <h2 id="rozvoz-bonbonu">Rozvoz bonbónů</h2>
-<!-- TODO: Doplnit popis nádobky – kde je, jak se otevírá, jaké bonbóny se do ní vejdou -->
-
 <ol>
-<li>Otevřete nádobku na bonbóny</li>
-<li>Vložte balené bonbóny</li>
-<li>Zavřete nádobku</li>
-<li>Ovládejte větrák k cíli a nechte si bonbóny vyzvednout</li>
+<li>Vložte bonbóny</li>
+<li>Řiďte větrák k cíli – děti si bonbóny vezmou samy</li>
 </ol>
+<h2 id="bezpecnostni-chovani">Bezpečnostní chování</h2>
+<p>Zařízení má několik automatických ochran:</p>
+<table>
+<thead>
+<tr>
+<th>Situace</th>
+<th>Reakce zařízení</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ovladač se odpojí (vybitá baterie, ztráta signálu)</td>
+<td>Motory se okamžitě zastaví, LED začnou červeně pulzovat</td>
+</tr>
+<tr>
+<td>Překážka blíže než 15 cm</td>
+<td>Pohyb vpřed zablokován, lze pouze couvat</td>
+</tr>
+</tbody>
+</table>
 <h2 id="vypnuti">Vypnutí</h2>
-<!-- TODO: Doplnit postup vypnutí (vypínač? Odpojení baterie?) -->
-
 <ol>
-<li>Vypněte zařízení</li>
+<li>Pusťte joystick – zařízení zastaví</li>
 <li>Vypněte Xbox ovladač podržením tlačítka Xbox</li>
+<li>Vypněte zařízení</li>
 </ol>
-<h2 id="bezpecnost">Bezpečnost</h2>
+<h2 id="tipy-pro-provoz">Tipy pro provoz</h2>
 <ul>
-<li>Zařízení neprovozujte v blízkosti vody</li>
-<li>Pokud se motory zaseknou nebo zařízení vydává neobvyklé zvuky, okamžitě ho vypněte</li>
-<li>Neblokujte kola ručně za chodu – motory jsou silné</li>
-<li>Bonbóny vkládejte pouze balené (hygiena)</li>
-<li>Při nabíjení baterie používejte původní nabíječku</li>
+<li>Zařízení nejlépe funguje na <strong>rovném hladkém povrchu</strong> (lino, dlažba, hladký beton)</li>
+<li>Na koberci bude mít problémy s jízdou (větší odpor)</li>
+<li>Pokud jede zařízení mírně šikmo, je to normální – motory mohou mít lehce odlišné otáčky</li>
+<li>Pokud LED pásek nesvítí nebo motory nereagují, zkuste zařízení vypnout a znovu zapnout</li>
+<li>Při delším provozu může být spodek zařízení teplý – to je normální</li>
+<li>Skrze indikátory na původním zařízení hlídejte stav baterie a včas zařízení nabijte. Při nabíjení nechte zařízení vypnuté.</li>
 </ul>
               
             </div>

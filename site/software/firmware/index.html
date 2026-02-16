@@ -75,57 +75,61 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Popis firmware</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#prehled-funkci">Přehled funkcí</a>
+    <li class="toctree-l2"><a class="reference internal" href="#vychozi-bod">Výchozí bod</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#struktura-programu">Struktura programu</a>
+    <li class="toctree-l2"><a class="reference internal" href="#konfigurace-pinu">Konfigurace pinů</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#inicializace-setup">Inicializace (setup)</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#hlavni-smycka-loop">Hlavní smyčka (loop)</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#parovani-xbox-ovladace">Párování Xbox ovladače</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ovladani-pohybu">Ovládání pohybu</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ukol-1-diferencialni-rizeni-zataceni">Úkol 1: Diferenciální řízení (zatáčení)</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#aktualni-stav-jeden-motor">Aktuální stav (jeden motor)</a>
+    <li class="toctree-l3"><a class="reference internal" href="#princip">Princip</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#implementace">Implementace</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#testovani">Testování</a>
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ukol-doprogramovani-zataceni-diferencialni-rizeni">Úkol: doprogramování zatáčení (diferenciální řízení)</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ukol-2-plynuly-rozjezd-a-brzdeni-rampa">Úkol 2: Plynulý rozjezd a brzdění (rampa)</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#co-je-potreba">Co je potřeba:</a>
+    <li class="toctree-l3"><a class="reference internal" href="#princip_1">Princip</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#postup-implementace">Postup implementace:</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#1-pridejte-piny-pro-druhy-motor">1. Přidejte piny pro druhý motor</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#2-upravte-funkci-movemotor">2. Upravte funkci moveMotor()</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#3-nova-verze-movemotor">3. Nová verze moveMotor()</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#4-testovani">4. Testování</a>
+    <li class="toctree-l3"><a class="reference internal" href="#implementace_1">Implementace</a>
     </li>
         </ul>
     </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#led-rezimy">LED režimy</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ukol-3-ultrazvukove-senzory-a-ochrana-proti-narazu">Úkol 3: Ultrazvukové senzory a ochrana proti nárazu</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#tlacitko-a-jednobarevne-sviceni-modesolidcolor">Tlačítko A – jednobarevné svícení (modeSolidColor)</a>
+    <li class="toctree-l3"><a class="reference internal" href="#princip_2">Princip</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#tlacitko-b-pohyblivy-bod-modemovingdot">Tlačítko B – pohyblivý bod (modeMovingDot)</a>
+    <li class="toctree-l3"><a class="reference internal" href="#implementace_2">Implementace</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#tlacitko-x-duha-moderainbow">Tlačítko X – duha (modeRainbow)</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#tlacitko-y-dychani-modebreathing">Tlačítko Y – dýchání (modeBreathing)</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#spolecne-ovladani-pro-vsechny-rezimy">Společné ovládání pro všechny režimy</a>
+    <li class="toctree-l3"><a class="reference internal" href="#testovani_1">Testování</a>
     </li>
         </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ukol-4-premapovani-ovladacich-prvku">Úkol 4: Přemapování ovládacích prvků</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#vysledne-mapovani">Výsledné mapování</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#zmena-barvy-led-pres-d-pad">Změna barvy LED přes D-pad</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ukol-5-vychozi-led-rezim-a-odpojeni-ovladace">Úkol 5: Výchozí LED režim a odpojení ovladače</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#vychozi-rezim-po-pripojeni">Výchozí režim po připojení</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#chovani-pri-odpojeni-ovladace">Chování při odpojení ovladače</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#struktura-vysledneho-programu">Struktura výsledného programu</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#nahrani-kodu-na-esp32">Nahrání kódu na ESP32</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#ladeni">Ladění</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#poradi-implementace">Pořadí implementace</a>
     </li>
     </ul>
                   </li>
@@ -163,189 +167,347 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="popis-firmware">Popis firmware</h1>
-<p>Tato stránka popisuje strukturu a funkce programu <code>mymachine.ino</code>, který běží na ESP32 a ovládá celé zařízení.</p>
-<p>Zdrojový kód je k dispozici v <a href="https://github.com/BrnoMarsRover/myMachine-Fan/blob/main/mymachine.ino">repozitáři na GitHubu</a>.</p>
-<h2 id="prehled-funkci">Přehled funkcí</h2>
-<p>Program zajišťuje:</p>
+                <h1 id="specifikace-firmware">Specifikace firmware</h1>
+<p>Tato stránka popisuje, co musí výsledný program na ESP32 dělat a jak to implementovat.</p>
+<p>Chování zařízení z pohledu uživatele je popsáno v <a href="../../manual/">Návodu k obsluze</a> – ten je závazný. Tato stránka vysvětluje, <strong>jak</strong> toho dosáhnout v kódu.</p>
+<h2 id="vychozi-bod">Výchozí bod</h2>
+<p>V repozitáři je soubor <a href="https://github.com/BrnoMarsRover/myMachine-Fan/blob/main/mymachine.ino"><code>mymachine.ino</code></a> s rozpracovaným kódem, který obsahuje:</p>
 <ul>
-<li>Připojení k Xbox ovladači přes Bluetooth</li>
-<li>Ovládání pohybu (motory)</li>
-<li>Ovládání LED pásku (4 animační režimy)</li>
-<li>Indikaci stavu připojení</li>
+<li>Připojení Xbox ovladače přes Bluetooth (funguje)</li>
+<li>4 LED animační režimy (fungují)</li>
+<li>Ovládání <strong>jednoho</strong> motoru levým joystickem Y (funguje)</li>
 </ul>
-<h2 id="struktura-programu">Struktura programu</h2>
-<pre><code>mymachine.ino
-├── Konstanty a konfigurace (#define)
-├── Globální proměnné (stav ovladače, režim LED, jas, rychlost)
-├── onValueChanged()     ← callback – volá se při každé změně stavu ovladače
-├── Pomocné funkce pro LED efekty:
-│   ├── colorFromLeftStick()  – barva podle úhlu joysticku
-│   ├── modeSolidColor()      – režim 0: jednobarevné svícení
-│   ├── modeMovingDot()       – režim 1: pohyblivý bod
-│   ├── modeRainbow()         – režim 2: duha
-│   └── modeBreathing()       – režim 3: dýchání
-├── moveMotor()          ← ovládání motorů
-├── setup()              ← inicializace při zapnutí
-└── loop()               ← hlavní smyčka (opakuje se ~60× za sekundu)
-</code></pre>
-<h2 id="inicializace-setup">Inicializace (<code>setup</code>)</h2>
-<p>Při zapnutí ESP32 se provede:</p>
+<p><strong>Co je potřeba doplnit / změnit:</strong></p>
 <ol>
-<li>Nastavení pinů motorů jako výstupní (<code>pinMode</code>)</li>
-<li>Zapnutí sériové komunikace pro ladění (<code>Serial.begin(115200)</code>)</li>
-<li>Inicializace LED pásku (40 LED, pin 23, vypnutý)</li>
-<li>Spuštění Bluetooth a registrace callbacku pro ovladač</li>
+<li>Přidat ovládání druhého motoru (zatáčení)</li>
+<li>Přemapovat ovládací prvky tak, aby levý joystick řídil jízdu (X + Y) a zbytek LED efekty</li>
+<li>Přidat plynulý rozjezd a brzdění (rampa)</li>
+<li>Přidat omezení maximální rychlosti</li>
+<li>Přidat čtení ultrazvukových senzorů a ochranu proti nárazu</li>
+<li>Nastavit výchozí LED režim na duhu</li>
 </ol>
-<h2 id="hlavni-smycka-loop">Hlavní smyčka (<code>loop</code>)</h2>
-<p>Smyčka se opakuje každých 15 ms (~60 FPS):</p>
-<ol>
-<li><strong>Kontrola připojení ovladače:</strong></li>
-<li>Pokud <strong>není připojený</strong> → zobrazí červené pulzování (pomalé dýchání) jako signál, že čeká na spárování</li>
-<li>Pokud <strong>je připojený</strong> → spustí vybraný LED režim</li>
-<li><strong>Zobrazení LED efektu</strong> (<code>strip.show()</code>)</li>
-<li><strong>Ovládání motorů</strong> (<code>moveMotor()</code>)</li>
-</ol>
-<h2 id="parovani-xbox-ovladace">Párování Xbox ovladače</h2>
-<ol>
-<li>Zapněte ESP32 (LED začne červeně pulzovat – čeká na ovladač)</li>
-<li>Zapněte Xbox ovladač podržením tlačítka Xbox (logo)</li>
-<li>Ovladač se automaticky připojí přes Bluetooth</li>
-<li>Po připojení LED přestanou červeně pulzovat a přepnou se na aktivní režim</li>
-</ol>
-<p>Knihovna <code>BLE-Gamepad-Client</code> zajišťuje komunikaci. Při každé změně stavu ovladače (pohyb joysticku, stisk tlačítka) se zavolá funkce <code>onValueChanged()</code>.</p>
-<!-- TODO: Doplnit, zda je potřeba první párování provést speciálně (např. podržet párovací tlačítko na ovladači) -->
+<h2 id="konfigurace-pinu">Konfigurace pinů</h2>
+<p>Viz <a href="../../hardware/zapojeni/">schéma zapojení</a>. Definice pinů na začátku programu:</p>
+<pre><code class="language-cpp">// LED pásek
+#define NEOPIXEL_PIN  23
+#define NUM_PIXELS    40
 
-<h2 id="ovladani-pohybu">Ovládání pohybu</h2>
-<h3 id="aktualni-stav-jeden-motor">Aktuální stav (jeden motor)</h3>
-<p>V současném kódu funguje pouze <strong>jeden motor</strong> na pinech:</p>
-<ul>
-<li><code>RPWM</code> (GPIO 33) – pohyb vpřed</li>
-<li><code>LPWM</code> (GPIO 32) – pohyb vzad</li>
-</ul>
-<p>Ovládání levým joystickem (osa Y):</p>
-<ul>
-<li>Joystick nahoru → <code>analogWrite(RPWM, rychlost)</code> → jede vpřed</li>
-<li>Joystick dolů → <code>analogWrite(LPWM, rychlost)</code> → jede vzad</li>
-<li>Joystick uprostřed (dead zone ±0.05) → oba piny na 0 → stojí</li>
-</ul>
-<p><strong>Bezpečnostní pravidlo:</strong> Nikdy nenastavovat oba piny (RPWM i LPWM) jednoho motoru na nenulovou hodnotu současně – hrozí zničení motor driveru!</p>
-<hr />
-<h2 id="ukol-doprogramovani-zataceni-diferencialni-rizeni">Úkol: doprogramování zatáčení (diferenciální řízení)</h2>
-<p><strong>Toto je hlavní programátorský úkol pro středoškoláky.</strong></p>
-<h3 id="co-je-potreba">Co je potřeba:</h3>
-<p>Aktuálně je ovládán jen jeden motor. Pro zatáčení potřebujete ovládat <strong>dva motory nezávisle</strong> – to se nazývá diferenciální řízení. Princip: pokud levý motor jede rychleji než pravý, zařízení zatáčí doprava (a naopak).</p>
-<h3 id="postup-implementace">Postup implementace:</h3>
-<h4 id="1-pridejte-piny-pro-druhy-motor">1. Přidejte piny pro druhý motor</h4>
-<p>Na začátek souboru přidejte definice pinů pro druhý BTS7960B:</p>
-<pre><code class="language-cpp">// Motor #1 (stávající)
+// Motor #1 (levý)
 #define RPWM1 33
 #define LPWM1 32
 
-// Motor #2 (nový – zvolte volné GPIO piny!)
-// TODO: Zvolte vhodné GPIO piny a doplňte
-#define RPWM2 ???
-#define LPWM2 ???
+// Motor #2 (pravý)
+#define RPWM2 26
+#define LPWM2 25
+
+// Ultrazvukový senzor #1 (levý)
+#define TRIG1 19
+#define ECHO1 18
+
+// Ultrazvukový senzor #2 (pravý)
+#define TRIG2 5
+#define ECHO2 17
 </code></pre>
-<p>V <code>setup()</code> přidejte:</p>
-<pre><code class="language-cpp">pinMode(RPWM2, OUTPUT);
+<p>V <code>setup()</code> nastavit všechny motorové piny jako výstup:</p>
+<pre><code class="language-cpp">pinMode(RPWM1, OUTPUT);
+pinMode(LPWM1, OUTPUT);
+pinMode(RPWM2, OUTPUT);
 pinMode(LPWM2, OUTPUT);
 </code></pre>
-<h4 id="2-upravte-funkci-movemotor">2. Upravte funkci <code>moveMotor()</code></h4>
-<p>Aktuální funkce používá jen <code>stick</code> (levý joystick Y). Potřebujete přidat i pravý joystick X pro zatáčení.</p>
-<p>Nejdříve přidejte novou globální proměnnou:</p>
-<pre><code class="language-cpp">float stickTurn = 0;  // pravý joystick X – zatáčení
-</code></pre>
-<p>V callbacku <code>onValueChanged()</code> přidejte:</p>
-<pre><code class="language-cpp">stickTurn = s.rightStickX;  // -1 = doleva, +1 = doprava
-</code></pre>
-<p><strong>Pozor:</strong> Pravý joystick X se momentálně používá pro rychlost LED animace. Budete muset rozhodnout, zda chcete zatáčení přesunout na jiný vstup, nebo ponechat a LED ovládání přemapovat. Doporučení: použít levý joystick pro oba (X = zatáčení, Y = rychlost) a pravý joystick nechat pro LED.</p>
-<h4 id="3-nova-verze-movemotor">3. Nová verze <code>moveMotor()</code></h4>
-<p>Princip diferenciálního řízení:</p>
-<pre><code class="language-cpp">void moveMotor() {
-  // stick = levý joystick Y (-1..1), vpřed/vzad
-  // stickTurn = levý joystick X (-1..1), zatáčení
+<hr />
+<h2 id="ukol-1-diferencialni-rizeni-zataceni">Úkol 1: Diferenciální řízení (zatáčení)</h2>
+<p><strong>Cíl:</strong> Levý joystick ovládá jízdu – Y = vpřed/vzad, X = zatáčení.</p>
+<h3 id="princip">Princip</h3>
+<p>Zařízení má dva motory (levý a pravý). Zatáčení funguje tak, že jeden motor jede rychleji než druhý:</p>
+<ul>
+<li>Joystick vpřed → oba motory jedou vpřed stejně rychle</li>
+<li>Joystick vpřed + doprava → levý motor rychleji, pravý pomaleji → zatáčí doprava</li>
+<li>Joystick jen doprava (bez vpřed) → levý motor vpřed, pravý vzad → otáčení na místě</li>
+</ul>
+<h3 id="implementace">Implementace</h3>
+<pre><code class="language-cpp">// Globální proměnné pro jízdu
+float driveSpeed = 0;  // levý joystick Y (-1..1)
+float driveTurn  = 0;  // levý joystick X (-1..1)
 
+// V callbacku onValueChanged():
+driveSpeed = s.leftStickY;
+driveTurn  = s.leftStickX;
+</code></pre>
+<p>Funkce pro ovládání motorů:</p>
+<pre><code class="language-cpp">#define MAX_SPEED 0.6f    // Omezení na 60 % výkonu
+#define DEAD_ZONE 0.05f   // Ignorovat malé výchylky joysticku
+
+void moveMotors() {
   // Dead zone
-  float speed = (abs(stick) &lt; 0.05) ? 0 : stick;
-  float turn  = (abs(stickTurn) &lt; 0.05) ? 0 : stickTurn;
+  float speed = (abs(driveSpeed) &lt; DEAD_ZONE) ? 0 : driveSpeed;
+  float turn  = (abs(driveTurn)  &lt; DEAD_ZONE) ? 0 : driveTurn;
 
-  // Výpočet rychlostí pro každý motor
-  float leftMotor  = speed + turn;   // levý motor
-  float rightMotor = speed - turn;   // pravý motor
+  // Diferenciální řízení
+  float leftMotor  = speed + turn;
+  float rightMotor = speed - turn;
 
-  // Ořezání na rozsah -1..1
-  leftMotor  = constrain(leftMotor, -1.0, 1.0);
-  rightMotor = constrain(rightMotor, -1.0, 1.0);
+  // Omezení maximální rychlosti
+  leftMotor  = constrain(leftMotor,  -MAX_SPEED, MAX_SPEED);
+  rightMotor = constrain(rightMotor, -MAX_SPEED, MAX_SPEED);
 
-  // Převod na PWM hodnoty (0–255) a nastavení směru
-  // Motor #1 (levý)
-  if (leftMotor &gt; 0) {
-    analogWrite(RPWM1, leftMotor * 255);
-    analogWrite(LPWM1, 0);
+  // Aplikovat rampu (viz Úkol 2)
+  // ...
+
+  // Nastavení PWM pro levý motor
+  driveOneMotor(RPWM1, LPWM1, leftMotor);
+  // Nastavení PWM pro pravý motor
+  driveOneMotor(RPWM2, LPWM2, rightMotor);
+}
+
+void driveOneMotor(int pinFwd, int pinBwd, float value) {
+  int pwm = abs(value) * 255;
+  if (value &gt; 0) {
+    analogWrite(pinFwd, pwm);
+    analogWrite(pinBwd, 0);
+  } else if (value &lt; 0) {
+    analogWrite(pinFwd, 0);
+    analogWrite(pinBwd, pwm);
   } else {
-    analogWrite(RPWM1, 0);
-    analogWrite(LPWM1, -leftMotor * 255);
-  }
-
-  // Motor #2 (pravý)
-  if (rightMotor &gt; 0) {
-    analogWrite(RPWM2, rightMotor * 255);
-    analogWrite(LPWM2, 0);
-  } else {
-    analogWrite(RPWM2, 0);
-    analogWrite(LPWM2, -rightMotor * 255);
+    analogWrite(pinFwd, 0);
+    analogWrite(pinBwd, 0);
   }
 }
 </code></pre>
-<h4 id="4-testovani">4. Testování</h4>
+<p><strong>Bezpečnostní pravidlo:</strong> Funkce <code>driveOneMotor</code> zajišťuje, že nikdy nejsou oba piny jednoho motoru aktivní současně.</p>
+<h3 id="testovani">Testování</h3>
 <ol>
-<li>Nahrajte kód na ESP32</li>
-<li>Zvedněte zařízení (kola ve vzduchu) a testujte:</li>
-<li>Joystick dopředu → obě kola se točí vpřed</li>
-<li>Joystick dozadu → obě kola se točí vzad</li>
-<li>Joystick doleva → levé kolo pomaleji, pravé rychleji</li>
-<li>Joystick doprava → pravé kolo pomaleji, levé rychleji</li>
-<li>Pokud se kola točí opačně, prohoďte vodiče na motoru nebo prohoďte RPWM/LPWM piny v kódu</li>
+<li>Nahrajte kód, zvedněte zařízení (kola ve vzduchu)</li>
+<li>Joystick vpřed → obě kola vpřed</li>
+<li>Joystick vzad → obě kola vzad</li>
+<li>Joystick doprava → levé kolo vpřed, pravé vzad (otáčení)</li>
+<li>Pokud je směr otáčení opačný → prohoďte vodiče na jednom z motorů, nebo prohoďte RPWM/LPWM piny v kódu</li>
 <li>Teprve potom testujte na zemi</li>
 </ol>
 <hr />
-<h2 id="led-rezimy">LED režimy</h2>
-<p>Přepínání režimů tlačítky na Xbox ovladači:</p>
-<h3 id="tlacitko-a-jednobarevne-sviceni-modesolidcolor">Tlačítko A – jednobarevné svícení (<code>modeSolidColor</code>)</h3>
-<p>Celý LED pásek svítí jednou barvou. Barva se mění podle <strong>úhlu levého joysticku</strong> – otáčením joysticku dokola měníte odstín (HSV barevné kolo).</p>
-<h3 id="tlacitko-b-pohyblivy-bod-modemovingdot">Tlačítko B – pohyblivý bod (<code>modeMovingDot</code>)</h3>
-<p>Po pásku se pohybuje světelný bod s malým ocáskem. Automaticky se posouvá rychlostí 5 LED/sekundu (základní rychlost). Levý joystick X posune pozici bodu, barva se řídí stejně jako v režimu A.</p>
-<h3 id="tlacitko-x-duha-moderainbow">Tlačítko X – duha (<code>modeRainbow</code>)</h3>
-<p>Duhový gradient se plynule posouvá po celém pásku. Rychlost posunu závisí na nastavení rychlosti animace.</p>
-<h3 id="tlacitko-y-dychani-modebreathing">Tlačítko Y – dýchání (<code>modeBreathing</code>)</h3>
-<p>LED pásek plynule zesiluje a zeslabuje jas (efekt dýchání). Barva se řídí levým joystickem. Navíc:</p>
-<ul>
-<li><strong>Levý trigger (LT)</strong> přidává červenou složku</li>
-<li><strong>Pravý trigger (RT)</strong> přidává modrou složku</li>
-</ul>
-<h3 id="spolecne-ovladani-pro-vsechny-rezimy">Společné ovládání pro všechny režimy</h3>
+<h2 id="ukol-2-plynuly-rozjezd-a-brzdeni-rampa">Úkol 2: Plynulý rozjezd a brzdění (rampa)</h2>
+<p><strong>Cíl:</strong> Zařízení nezačne okamžitě jet plnou rychlostí a nezastaví náhle. Tím se zabrání trhání, vysypání bonbónů a překvapení dětí.</p>
+<h3 id="princip_1">Princip</h3>
+<p>Místo okamžitého nastavení rychlosti na cílovou hodnotu se aktuální rychlost postupně přibližuje k cílové:</p>
+<pre><code>cílová rychlost:    [0] ──────────── [0.6] ──────────── [0]
+aktuální rychlost:  [0] ──/────────/ [0.6] \──────────\ [0]
+                         rozjezd              brzdění
+</code></pre>
+<h3 id="implementace_1">Implementace</h3>
+<pre><code class="language-cpp">#define RAMP_RATE 2.0f  // Jak rychle se mění rychlost (jednotek za sekundu)
+
+float currentLeft  = 0;  // Aktuální rychlost levého motoru
+float currentRight = 0;  // Aktuální rychlost pravého motoru
+
+// Pomocná funkce – posuň hodnotu směrem k cíli
+float rampTowards(float current, float target, float maxStep) {
+  if (current &lt; target) {
+    return min(current + maxStep, target);
+  } else {
+    return max(current - maxStep, target);
+  }
+}
+
+void moveMotors() {
+  float speed = (abs(driveSpeed) &lt; DEAD_ZONE) ? 0 : driveSpeed;
+  float turn  = (abs(driveTurn)  &lt; DEAD_ZONE) ? 0 : driveTurn;
+
+  float targetLeft  = constrain(speed + turn, -MAX_SPEED, MAX_SPEED);
+  float targetRight = constrain(speed - turn, -MAX_SPEED, MAX_SPEED);
+
+  // Plynulá rampa
+  float dt = 0.015f;  // 15 ms smyčka
+  float maxStep = RAMP_RATE * dt;
+  currentLeft  = rampTowards(currentLeft,  targetLeft,  maxStep);
+  currentRight = rampTowards(currentRight, targetRight, maxStep);
+
+  driveOneMotor(RPWM1, LPWM1, currentLeft);
+  driveOneMotor(RPWM2, LPWM2, currentRight);
+}
+</code></pre>
+<p>Hodnotu <code>RAMP_RATE</code> dolaďte při testování – vyšší = rychlejší reakce, nižší = plynulejší rozjezd.</p>
+<hr />
+<h2 id="ukol-3-ultrazvukove-senzory-a-ochrana-proti-narazu">Úkol 3: Ultrazvukové senzory a ochrana proti nárazu</h2>
+<p><strong>Cíl:</strong> Zařízení nesmí narazit do překážky ani do osoby. Při přiblížení k překážce postupně zpomaluje a ve 15 cm úplně zastaví.</p>
+<h3 id="princip_2">Princip</h3>
+<p>Senzory měří vzdálenost. Podle naměřené vzdálenosti se omezí maximální povolená rychlost vpřed:</p>
 <table>
 <thead>
 <tr>
-<th>Ovládací prvek</th>
-<th>Funkce</th>
-<th>Rozsah</th>
+<th>Vzdálenost</th>
+<th>Rychlostní limit vpřed</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Pravý joystick X</td>
-<td>Rychlost animace</td>
-<td>0.1× až 3.0×</td>
+<td>&gt; 40 cm</td>
+<td>100 % (bez omezení)</td>
 </tr>
 <tr>
-<td>Pravý joystick Y</td>
-<td>Jas LED</td>
-<td>10–255 (nahoru = jasnější)</td>
+<td>40–15 cm</td>
+<td>Lineárně klesá na 0 %</td>
+</tr>
+<tr>
+<td>&lt; 15 cm</td>
+<td>0 % (zastavit, lze pouze couvat)</td>
 </tr>
 </tbody>
 </table>
+<p>Couvání a zatáčení nejsou omezeny – aby se zařízení mohlo od překážky vzdálit.</p>
+<h3 id="implementace_2">Implementace</h3>
+<pre><code class="language-cpp">#include &lt;Ultrasonic.h&gt;
+
+Ultrasonic sonarLeft(TRIG1, ECHO1);
+Ultrasonic sonarRight(TRIG2, ECHO2);
+
+#define DIST_STOP 15    // cm – úplné zastavení
+#define DIST_SLOW 40    // cm – začátek zpomalování
+
+// Vrátí koeficient 0.0–1.0 pro omezení rychlosti vpřed
+float getObstacleLimit() {
+  int distL = sonarLeft.read();
+  int distR = sonarRight.read();
+  int dist = min(distL, distR);  // Bereme bližší překážku
+
+  if (dist &gt;= DIST_SLOW) return 1.0f;         // Volno
+  if (dist &lt;= DIST_STOP) return 0.0f;         // Stop
+  // Lineární přechod mezi DIST_STOP a DIST_SLOW
+  return (float)(dist - DIST_STOP) / (float)(DIST_SLOW - DIST_STOP);
+}
+</code></pre>
+<p>Ve funkci <code>moveMotors()</code> aplikovat limit <strong>pouze na kladné (dopředné) rychlosti</strong>:</p>
+<pre><code class="language-cpp">float limit = getObstacleLimit();
+
+// Omezit dopředný pohyb, couvání nechat bez omezení
+if (targetLeft &gt; 0)  targetLeft  *= limit;
+if (targetRight &gt; 0) targetRight *= limit;
+</code></pre>
+<h3 id="testovani_1">Testování</h3>
+<ol>
+<li>V Serial Monitoru vypisujte naměřené vzdálenosti</li>
+<li>Přiložte ruku před senzor – zařízení by mělo zpomalit a zastavit</li>
+<li>Zkuste jet vpřed na zeď – musí plynule zastavit</li>
+<li>Ve stavu zastavení zkuste couvat – musí fungovat</li>
+</ol>
+<hr />
+<h2 id="ukol-4-premapovani-ovladacich-prvku">Úkol 4: Přemapování ovládacích prvků</h2>
+<p><strong>Cíl:</strong> Oddělit ovládání jízdy od ovládání LED, aby se nic nepletlo.</p>
+<h3 id="vysledne-mapovani">Výsledné mapování</h3>
+<p>V dodaném kódu levý joystick ovládá jak motor, tak barvu LED. To je potřeba rozdělit:</p>
+<table>
+<thead>
+<tr>
+<th>Prvek</th>
+<th>Funkce</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Levý joystick Y</strong></td>
+<td>Rychlost vpřed/vzad</td>
+</tr>
+<tr>
+<td><strong>Levý joystick X</strong></td>
+<td>Zatáčení</td>
+</tr>
+<tr>
+<td><strong>Pravý joystick X</strong></td>
+<td>Rychlost LED animace</td>
+</tr>
+<tr>
+<td><strong>Pravý joystick Y</strong></td>
+<td>Jas LED</td>
+</tr>
+<tr>
+<td><strong>A / B / X / Y</strong></td>
+<td>Přepínání LED režimů (zachovat)</td>
+</tr>
+<tr>
+<td><strong>D-pad ←→</strong></td>
+<td>Změna barvy LED (posun hue)</td>
+</tr>
+<tr>
+<td><strong>LT / RT</strong></td>
+<td>Barevný nádech v režimu dýchání (zachovat)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="zmena-barvy-led-pres-d-pad">Změna barvy LED přes D-pad</h3>
+<p>Místo ovládání barvy levým joystickem (ten teď řídí jízdu) přepnout na D-pad:</p>
+<pre><code class="language-cpp">uint16_t ledHue = 0;  // 0–65535, aktuální barva
+#define HUE_STEP 2000  // Krok při stisku D-padu
+
+// V callbacku onValueChanged():
+if (s.dpadLeft)  ledHue -= HUE_STEP;
+if (s.dpadRight) ledHue += HUE_STEP;
+// Hue se automaticky přetáčí (uint16_t overflow = OK)
+</code></pre>
+<p>Funkci <code>colorFromLeftStick()</code> přejmenujte/upravte na:</p>
+<pre><code class="language-cpp">uint32_t currentColor() {
+  return strip.gamma32(strip.ColorHSV(ledHue, 255, 255));
+}
+</code></pre>
+<hr />
+<h2 id="ukol-5-vychozi-led-rezim-a-odpojeni-ovladace">Úkol 5: Výchozí LED režim a odpojení ovladače</h2>
+<h3 id="vychozi-rezim-po-pripojeni">Výchozí režim po připojení</h3>
+<p>Po spárování ovladače se LED přepnou do režimu <strong>duha</strong> (<code>modeRainbow</code>). V kódu:</p>
+<pre><code class="language-cpp">// V setup() nebo při detekci připojení:
+currentMode = 2;  // duha jako výchozí
+</code></pre>
+<h3 id="chovani-pri-odpojeni-ovladace">Chování při odpojení ovladače</h3>
+<p>Již implementováno v dodaném kódu – červené pulzování. Navíc je potřeba zajistit <strong>okamžité zastavení motorů</strong>:</p>
+<pre><code class="language-cpp">if (!controller.isConnected()) {
+  // Zastavit motory!
+  analogWrite(RPWM1, 0); analogWrite(LPWM1, 0);
+  analogWrite(RPWM2, 0); analogWrite(LPWM2, 0);
+  currentLeft = 0;
+  currentRight = 0;
+
+  // Červené pulzování (existující kód)
+  // ...
+}
+</code></pre>
+<hr />
+<h2 id="struktura-vysledneho-programu">Struktura výsledného programu</h2>
+<pre><code>mymachine.ino (výsledný)
+│
+├── #define a konstanty
+│   ├── Piny (motory, LED, senzory)
+│   ├── MAX_SPEED, DEAD_ZONE, RAMP_RATE
+│   └── DIST_STOP, DIST_SLOW
+│
+├── Globální proměnné
+│   ├── Stav ovladače (driveSpeed, driveTurn, ledHue, ...)
+│   ├── Stav motorů (currentLeft, currentRight)
+│   └── Stav LED (currentMode, animSpeedFactor, globalBrightness)
+│
+├── onValueChanged(state)      ← callback ovladače
+│   ├── Uloží joysticky do globálních proměnných
+│   ├── Zpracuje tlačítka (A/B/X/Y → LED režim)
+│   └── Zpracuje D-pad (hue posun)
+│
+├── getObstacleLimit()         ← čtení ultrazvuků → koeficient 0–1
+├── rampTowards(cur, target)   ← plynulá rampa
+├── driveOneMotor(fwd, bwd, v) ← bezpečné nastavení jednoho motoru
+├── moveMotors()               ← diferenciální řízení + rampa + limit senzorů
+│
+├── LED efekty (ponechat z dodaného kódu)
+│   ├── modeSolidColor()
+│   ├── modeMovingDot()
+│   ├── modeRainbow()
+│   └── modeBreathing()
+│
+├── setup()
+│   ├── Inicializace pinů, Serial, LED, Bluetooth
+│   └── Výchozí režim = duha
+│
+└── loop()
+    ├── Kontrola připojení (odpojeno → stop + červené pulzování)
+    ├── LED efekt podle currentMode
+    ├── strip.show()
+    ├── moveMotors()
+    └── delay(15)
+</code></pre>
+<hr />
 <h2 id="nahrani-kodu-na-esp32">Nahrání kódu na ESP32</h2>
 <ol>
 <li>Otevřete <code>mymachine.ino</code> v Arduino IDE</li>
@@ -357,14 +519,52 @@ pinMode(LPWM2, OUTPUT);
 <li>Po nahrání otevřete <strong>Serial Monitor</strong> (115200 baud) pro kontrolu výpisů</li>
 </ol>
 <h2 id="ladeni">Ladění</h2>
-<p>Program vypisuje na sériový monitor pozice joysticků:</p>
-<pre><code>lx: 0.00, ly: 0.50, rx: -0.30, ry: 0.00
+<p>Program by měl vypisovat na sériový monitor:</p>
+<pre><code>lx: 0.00, ly: 0.50, rx: -0.30, ry: 0.00 | dist: 45/120 cm | L: 0.30 R: 0.28
 </code></pre>
-<ul>
-<li><code>lx</code>, <code>ly</code> = levý joystick X, Y</li>
-<li><code>rx</code>, <code>ry</code> = pravý joystick X, Y</li>
-</ul>
-<p>Hodnoty jsou v rozsahu -1.0 až 1.0. Toto je užitečné pro ověření, že ovladač komunikuje správně, a pro ladění dead zone motorů.</p>
+<p>Doporučené výpisy pro ladění:
+- Pozice joysticků (již existuje)
+- Vzdálenosti ze senzorů
+- Aktuální rychlosti motorů (po rampě a limitu)</p>
+<h2 id="poradi-implementace">Pořadí implementace</h2>
+<p>Doporučený postup – od nejdůležitějšího po nejméně kritické:</p>
+<table>
+<thead>
+<tr>
+<th>Pořadí</th>
+<th>Úkol</th>
+<th>Důvod</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.</td>
+<td>Diferenciální řízení (Úkol 1)</td>
+<td>Bez toho zařízení nezatáčí</td>
+</tr>
+<tr>
+<td>2.</td>
+<td>Omezení rychlosti + rampa (Úkol 2)</td>
+<td>Bezpečnost</td>
+</tr>
+<tr>
+<td>3.</td>
+<td>Ultrazvukové senzory (Úkol 3)</td>
+<td>Ochrana proti nárazu</td>
+</tr>
+<tr>
+<td>4.</td>
+<td>Přemapování ovládání (Úkol 4)</td>
+<td>Čistota ovládání</td>
+</tr>
+<tr>
+<td>5.</td>
+<td>Výchozí režim + odpojení (Úkol 5)</td>
+<td>Dokončení</td>
+</tr>
+</tbody>
+</table>
+<p>Každý úkol testujte samostatně, než přejdete na další.</p>
               
             </div>
           </div><footer>

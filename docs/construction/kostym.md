@@ -10,7 +10,6 @@ Aby větrák vypadal jako mexičan (podle původního návrhu dětí z Milotic),
 ### Rozměry
 
 - Průměr: přibližně **110 mm**
-- Výška: přibližně **120 mm**
 - Na přesných rozměrech příliš nezáleží – jde o to, aby na hlavici vypadal dobře a nespadával
 
 ### Uchycení
@@ -21,13 +20,7 @@ Klobouk je uchycen na vršku hlavice větráku přes **ložisko ZKL 51101A**. D�
 
 ### Materiál
 
-Je zcela na vaší kreativitě – možné materiály:
-
-- Karton / tvrdý papír (nejjednodušší)
-- Textil přes drátěnou kostru
-- 3D tisk (pokud chcete přesný tvar)
-- Plsť / filc
-- Kombinace materiálů
+Je zcela na vaší kreativitě a možnostech.
 
 ## Poncho
 

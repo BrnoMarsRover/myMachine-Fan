@@ -2,6 +2,8 @@
 
 Několik dílů zařízení je vyrobeno 3D tiskem. Tato stránka popisuje seznam dílů, kde najít soubory a doporučené nastavení tisku.
 
+**Poznámka:** Podvozek bude pro střední školu již **vytištěn a dodán**, protože vyžaduje velkoformátovou 3D tiskárnu. Ostatní menší díly (nádobka na bonbóny apod.) si lze vytisknout na běžné tiskárně.
+
 ## STL soubory
 
 Všechny soubory pro tisk najdete ve složce [`stl/`](https://github.com/BrnoMarsRover/myMachine-Fan/tree/main/stl) v repozitáři.
@@ -14,8 +16,8 @@ Všechny soubory pro tisk najdete ve složce [`stl/`](https://github.com/BrnoMar
 
 | Díl | Soubor | Počet kusů | Poznámka |
 |-----|--------|-----------|----------|
-| Podvozek – spodní díl | <!-- TODO --> | 1 | Obsahuje úchyty pro motory a kuličky |
-| Podvozek – horní díl | <!-- TODO --> | 1 | Kryt elektroniky |
+| Podvozek – spodní díl | <!-- TODO --> | 1 | Obsahuje úchyty pro motory a kuličky. **Dodán vytištěný.** |
+| Podvozek – horní díl | <!-- TODO --> | 1 | Kryt elektroniky. **Dodán vytištěný.** |
 | Nádobka na bonbóny | <!-- TODO --> | 1 | Pro rozvoz bonbónů |
 <!-- TODO: Doplnit další díly (držáky senzorů, adaptéry, atd.) -->
 
