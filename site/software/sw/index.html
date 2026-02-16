@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>ESP32 program - My Machine Chodící Větrák</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "ESP32 program";
+        var mkdocs_page_input_path = "software/sw.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> My Machine Chodící Větrák
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../big_picture/">Dětský Vynález</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Komponenty</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../construction/komponenty/">Nákupní seznam</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../construction/rozborka/">Rozborka větráku</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../construction/3d_tisk/">3D tištěné díly</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../construction/kostym/">Kostým a dekorace</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../construction/sestaveni/">Sestavení zařízení</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Hardware</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../hardware/pinout/">Schéma</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../hardware/zapojeni/">Návod na zapojení</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../hardware/hw/">Připravené komponenty</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Software</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">ESP32 program</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#seznam-doporucenych-knihoven">Seznam doporučených knihoven</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ovladani-motoru">Ovládání motorů</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../firmware/">Popis firmware</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../manual/">Návod k obsluze</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/">Řešení problémů</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">My Machine Chodící Větrák</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Software</li>
+      <li class="breadcrumb-item active">ESP32 program</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/BrnoMarsRover/myMachine-Fan/edit/main/docs/software/sw.md">Edit on BrnoMarsRover/myMachine-Fan</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="instalace">Instalace</h1>
+<p>Desku lze programovat v prostředí <a href="https://www.arduino.cc/en/software/">Arduino IDE</a>, <a href="https://www.youtube.com/watch?v=1ENiVwk8idM&amp;pp=ygUMYXJkdWlubyBpZGUg">Arduino in 100 seconds</a></p>
+<p>Pro správnou komunikaci s deskou je potřeba nainstalovat ovladač: <a href="https://www.silabs.com/software-and-tools/usb-to-uart-bridge-vcp-drivers?tab=">zde</a></p>
+<p><img alt="driver" src="../../images/sw/driver.png" /></p>
+<p>Dále v Arduino IDE nainstalovat desky ESP32.
+V záložce Tools -&gt; Boards: -&gt; Board Manager nainstalovat balíček esp32</p>
+<p><img alt="esp32" src="../../images/sw/esp32.png" /></p>
+<p>Pro nahrání je potřeba vybrat správný COM port a desku ESP32 Dev Module</p>
+<p>Pro otestování, že se kód správně nahrává, lze použít tento kód, který rozbliká LEDku na modulu:</p>
+<pre><code class="language-cpp">void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  delay(500);
+  Serial.println(&quot;Hello World!&quot;);
+}
+</code></pre>
+<h2 id="seznam-doporucenych-knihoven">Seznam doporučených knihoven</h2>
+<p>Knihovny lze instalovat pomocí <em>Library manager</em> (vlevo)</p>
+<ul>
+<li><a href="https://github.com/tbekas/BLE-Gamepad-Client">BLE-Gamepad-Client</a> pro komunikaci s dálkovým ovladačem</li>
+<li><a href="https://github.com/adafruit/Adafruit_NeoPixel">Adafruit Neopixel</a> pro ovládání LED pásku</li>
+<li><a href="https://github.com/ErickSimoes/Ultrasonic">Ultrasonic</a> pro práci s ultrazvukovými čidly</li>
+</ul>
+<p>Na stránkách knihoven jsou i ukázky použití </p>
+<h2 id="ovladani-motoru">Ovládání motorů</h2>
+<p>Motor lze řídit pomocí příkazu  <code>analogWrite(pin, hodnota)</code>.</p>
+<p>Kdy hodnota je číslo od 0 (netočí) po 255 (maximální rychlost). Směr se určuje podle pinu (R_PWM jeden směr, L_PWM opačný), na kterém danou hodnotu nastavím, viz schéma.</p>
+<p><strong>Pozor</strong>: Nenastavujte nikdy otáčení jednoho motoru do obou směrů zároveň, jinak by mohlo dojít k poškození driveru!</p>
+<pre><code class="language-cpp">// Špatně
+analogWrite(R_PWM, 100);
+analogWrite(L_PWM, 50);
+
+// Správně
+analogWrite(R_PWM, 100);
+analogWrite(L_PWM, 0);
+
+analogWrite(R_PWM, 0);
+analogWrite(L_PWM, 50);
+</code></pre>
+<h1 id="pozadovane-funkce">Požadované funkce</h1>
+<ul>
+<li>Ovládání pomocí dálkového ovladače, levý joystick pohyb vpřed(vzad), pravý zatáčení doprava/doleva</li>
+<li>Zamezení nárazu do překážek pomocí čidel měření dálky (ultrazvuková čidla)</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../hardware/hw/" class="btn btn-neutral float-left" title="Připravené komponenty"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../firmware/" class="btn btn-neutral float-right" title="Popis firmware">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/BrnoMarsRover/myMachine-Fan" class="fa fa-code-fork" style="color: #fcfcfc"> BrnoMarsRover/myMachine-Fan</a>
+        </span>
+    
+    
+      <span><a href="../../hardware/hw/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../firmware/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
