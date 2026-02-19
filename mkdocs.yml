@@ -14,8 +14,15 @@ nav:
   - Komponenty:
       - Nákupní seznam: construction/komponenty.md
       - Rozborka větráku: construction/rozborka.md
+      - 3D tištěné díly: construction/3d_tisk.md
+      - Kostým a dekorace: construction/kostym.md
+      - Sestavení zařízení: construction/sestaveni.md
   - Hardware:
       - Schéma: hardware/pinout.md
+      - Návod na zapojení: hardware/zapojeni.md
       - Připravené komponenty: hardware/hw.md
   - Software:
       - ESP32 program: software/sw.md
+      - Popis firmware: software/firmware.md
+  - Návod k obsluze: manual.md
+  - Řešení problémů: troubleshooting.md

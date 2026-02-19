@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Návod k obsluze - My Machine Chodící Větrák</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "N\u00e1vod k obsluze";
+        var mkdocs_page_input_path = "manual.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> My Machine Chodící Větrák
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../big_picture/">Dětský Vynález</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Komponenty</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../construction/komponenty/">Nákupní seznam</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../construction/rozborka/">Rozborka větráku</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../construction/3d_tisk/">3D tištěné díly</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../construction/kostym/">Kostým a dekorace</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../construction/sestaveni/">Sestavení zařízení</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Hardware</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../hardware/pinout/">Schéma</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hardware/zapojeni/">Návod na zapojení</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hardware/hw/">Připravené komponenty</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Software</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../software/sw/">ESP32 program</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../software/firmware/">Popis firmware</a>
+                  </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Návod k obsluze</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#zapnuti-a-pripojeni-ovladace">Zapnutí a připojení ovladače</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ovladani-jizdy">Ovládání jízdy</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#ochrana-proti-narazu">Ochrana proti nárazu</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#omezeni-rychlosti">Omezení rychlosti</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#led-efekty">LED efekty</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#rozvoz-bonbonu">Rozvoz bonbónů</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#bezpecnostni-chovani">Bezpečnostní chování</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#vypnuti">Vypnutí</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tipy-pro-provoz">Tipy pro provoz</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../troubleshooting/">Řešení problémů</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">My Machine Chodící Větrák</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Návod k obsluze</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/BrnoMarsRover/myMachine-Fan/edit/main/docs/manual.md">Edit on BrnoMarsRover/myMachine-Fan</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="navod-k-obsluze">Návod k obsluze</h1>
+<p>Tento dokument popisuje, jak má hotové zařízení fungovat z pohledu uživatele – tj. dětí na základní škole a jejich učitelů.</p>
+<p>Slouží zároveň jako <strong>specifikace chování</strong> pro středoškoláky, kteří budou psát výsledný program.</p>
+<hr />
+<h2 id="zapnuti-a-pripojeni-ovladace">Zapnutí a připojení ovladače</h2>
+<!-- TODO: Doplnit, kde přesně je vypínač / jak se zapíná baterie -->
+
+<ol>
+<li>Zapněte zařízení</li>
+<li>LED pásek začne <strong>červeně pulzovat</strong> – zařízení čeká na ovladač</li>
+<li>Zapněte <strong>Xbox ovladač</strong> podržením tlačítka Xbox (logo uprostřed)</li>
+<li>Ovladač se automaticky spáruje přes Bluetooth</li>
+<li>Po připojení LED pásek přejde do <strong>výchozího režimu</strong> (duhová animace) – zařízení je připraveno k jízdě</li>
+</ol>
+<h2 id="ovladani-jizdy">Ovládání jízdy</h2>
+<p>Ovládání je navrženo tak, aby bylo intuitivní i pro děti – stačí <strong>jeden joystick</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Ovládací prvek</th>
+<th>Funkce</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Levý joystick ↑</td>
+<td>Jízda vpřed</td>
+</tr>
+<tr>
+<td>Levý joystick ↓</td>
+<td>Jízda vzad</td>
+</tr>
+<tr>
+<td>Levý joystick ←</td>
+<td>Zatáčení doleva</td>
+</tr>
+<tr>
+<td>Levý joystick →</td>
+<td>Zatáčení doprava</td>
+</tr>
+<tr>
+<td>Levý joystick šikmo</td>
+<td>Kombinace – např. vpřed a doleva = oblouk doleva</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Rychlost</strong> závisí na vychýlení joysticku – mírné vychýlení = pomalá jízda, plné vychýlení = maximální (omezená) rychlost</li>
+<li><strong>Rozjezd je plynulý</strong> – zařízení nezačne okamžitě jet plnou rychlostí, ale postupně zrychluje, aby nedošlo k trhnutí nebo vysypání bonbónů</li>
+<li><strong>Zastavení je také plynulé</strong> – při puštění joysticku zařízení plynule zabrzdí</li>
+</ul>
+<h3 id="ochrana-proti-narazu">Ochrana proti nárazu</h3>
+<p>Zařízení má ultrazvukové senzory, které chrání před nárazem do překážek nebo osob:</p>
+<table>
+<thead>
+<tr>
+<th>Vzdálenost od překážky</th>
+<th>Chování</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Více než 40 cm</td>
+<td>Normální jízda</td>
+</tr>
+<tr>
+<td>40–15 cm</td>
+<td>Postupné zpomalování (čím blíž, tím pomalejší)</td>
+</tr>
+<tr>
+<td>Méně než 15 cm</td>
+<td>Úplné zastavení – vpřed nelze jet, lze pouze couvat nebo zatáčet pryč</td>
+</tr>
+</tbody>
+</table>
+<p>Senzory fungují pouze ve směru jízdy – brání nárazu vpřed, nebrání couvání.</p>
+<h3 id="omezeni-rychlosti">Omezení rychlosti</h3>
+<p>Maximální rychlost je programově omezena na přibližně <strong>60 % výkonu motorů</strong>. Zařízení rozváží bonbóny mezi dětmi, ne závodí – nízká rychlost zajišťuje bezpečnost a zabraňuje vysypání nákladu.</p>
+<h2 id="led-efekty">LED efekty</h2>
+<p>LED pásek kolem hlavice slouží jako dekorace a přitahuje pozornost dětí. Přepínání režimů je jednoduché – <strong>jedním tlačítkem</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Tlačítko</th>
+<th>Režim</th>
+<th>Popis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A</strong></td>
+<td>Jednobarevné svícení</td>
+<td>Celý pásek svítí jednou barvou</td>
+</tr>
+<tr>
+<td><strong>B</strong></td>
+<td>Pohyblivý bod</td>
+<td>Po pásku obíhá světelný bod s ocáskem</td>
+</tr>
+<tr>
+<td><strong>X</strong></td>
+<td>Duha</td>
+<td>Plynule se posouvající duhový gradient (výchozí režim)</td>
+</tr>
+<tr>
+<td><strong>Y</strong></td>
+<td>Dýchání</td>
+<td>Jas plynule stoupá a klesá (efekt dýchání)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="rozvoz-bonbonu">Rozvoz bonbónů</h2>
+<ol>
+<li>Vložte bonbóny</li>
+<li>Řiďte větrák k cíli – děti si bonbóny vezmou samy</li>
+</ol>
+<h2 id="bezpecnostni-chovani">Bezpečnostní chování</h2>
+<p>Zařízení má několik automatických ochran:</p>
+<table>
+<thead>
+<tr>
+<th>Situace</th>
+<th>Reakce zařízení</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ovladač se odpojí (vybitá baterie, ztráta signálu)</td>
+<td>Motory se okamžitě zastaví, LED začnou červeně pulzovat</td>
+</tr>
+<tr>
+<td>Překážka blíže než 15 cm</td>
+<td>Pohyb vpřed zablokován, lze pouze couvat</td>
+</tr>
+</tbody>
+</table>
+<h2 id="vypnuti">Vypnutí</h2>
+<ol>
+<li>Pusťte joystick – zařízení zastaví</li>
+<li>Vypněte Xbox ovladač podržením tlačítka Xbox</li>
+<li>Vypněte zařízení</li>
+</ol>
+<h2 id="tipy-pro-provoz">Tipy pro provoz</h2>
+<ul>
+<li>Zařízení nejlépe funguje na <strong>rovném hladkém povrchu</strong> (lino, dlažba, hladký beton)</li>
+<li>Na koberci bude mít problémy s jízdou (větší odpor)</li>
+<li>Pokud jede zařízení mírně šikmo, je to normální – motory mohou mít lehce odlišné otáčky</li>
+<li>Pokud LED pásek nesvítí nebo motory nereagují, zkuste zařízení vypnout a znovu zapnout</li>
+<li>Při delším provozu může být spodek zařízení teplý – to je normální</li>
+<li>Skrze indikátory na původním zařízení hlídejte stav baterie a včas zařízení nabijte. Při nabíjení nechte zařízení vypnuté.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../software/firmware/" class="btn btn-neutral float-left" title="Popis firmware"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../troubleshooting/" class="btn btn-neutral float-right" title="Řešení problémů">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/BrnoMarsRover/myMachine-Fan" class="fa fa-code-fork" style="color: #fcfcfc"> BrnoMarsRover/myMachine-Fan</a>
+        </span>
+    
+    
+      <span><a href="../software/firmware/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../troubleshooting/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

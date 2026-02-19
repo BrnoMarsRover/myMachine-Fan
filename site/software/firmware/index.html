@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Popis firmware - My Machine Chodící Větrák</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Popis firmware";
+        var mkdocs_page_input_path = "software/firmware.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> My Machine Chodící Větrák
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../big_picture/">Dětský Vynález</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Komponenty</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../construction/komponenty/">Nákupní seznam</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../construction/rozborka/">Rozborka větráku</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../construction/3d_tisk/">3D tištěné díly</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../construction/kostym/">Kostým a dekorace</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../construction/sestaveni/">Sestavení zařízení</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Hardware</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../hardware/pinout/">Schéma</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../hardware/zapojeni/">Návod na zapojení</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../hardware/hw/">Připravené komponenty</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Software</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../sw/">ESP32 program</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Popis firmware</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#vychozi-bod">Výchozí bod</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#konfigurace-pinu">Konfigurace pinů</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ukol-1-diferencialni-rizeni-zataceni">Úkol 1: Diferenciální řízení (zatáčení)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#princip">Princip</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#implementace">Implementace</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#testovani">Testování</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ukol-2-plynuly-rozjezd-a-brzdeni-rampa">Úkol 2: Plynulý rozjezd a brzdění (rampa)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#princip_1">Princip</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#implementace_1">Implementace</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ukol-3-ultrazvukove-senzory-a-ochrana-proti-narazu">Úkol 3: Ultrazvukové senzory a ochrana proti nárazu</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#princip_2">Princip</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#implementace_2">Implementace</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#testovani_1">Testování</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ukol-4-premapovani-ovladacich-prvku">Úkol 4: Přemapování ovládacích prvků</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#vysledne-mapovani">Výsledné mapování</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#zmena-barvy-led-pres-d-pad">Změna barvy LED přes D-pad</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ukol-5-vychozi-led-rezim-a-odpojeni-ovladace">Úkol 5: Výchozí LED režim a odpojení ovladače</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#vychozi-rezim-po-pripojeni">Výchozí režim po připojení</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#chovani-pri-odpojeni-ovladace">Chování při odpojení ovladače</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#struktura-vysledneho-programu">Struktura výsledného programu</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#nahrani-kodu-na-esp32">Nahrání kódu na ESP32</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ladeni">Ladění</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#poradi-implementace">Pořadí implementace</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../manual/">Návod k obsluze</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/">Řešení problémů</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">My Machine Chodící Větrák</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Software</li>
+      <li class="breadcrumb-item active">Popis firmware</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/BrnoMarsRover/myMachine-Fan/edit/main/docs/software/firmware.md">Edit on BrnoMarsRover/myMachine-Fan</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="specifikace-firmware">Specifikace firmware</h1>
+<p>Tato stránka popisuje, co musí výsledný program na ESP32 dělat a jak to implementovat.</p>
+<p>Chování zařízení z pohledu uživatele je popsáno v <a href="../../manual/">Návodu k obsluze</a> – ten je závazný. Tato stránka vysvětluje, <strong>jak</strong> toho dosáhnout v kódu.</p>
+<h2 id="vychozi-bod">Výchozí bod</h2>
+<p>V repozitáři je soubor <a href="https://github.com/BrnoMarsRover/myMachine-Fan/blob/main/mymachine.ino"><code>mymachine.ino</code></a> s rozpracovaným kódem, který obsahuje:</p>
+<ul>
+<li>Připojení Xbox ovladače přes Bluetooth (funguje)</li>
+<li>4 LED animační režimy (fungují)</li>
+<li>Ovládání <strong>jednoho</strong> motoru levým joystickem Y (funguje)</li>
+</ul>
+<p><strong>Co je potřeba doplnit / změnit:</strong></p>
+<ol>
+<li>Přidat ovládání druhého motoru (zatáčení)</li>
+<li>Přemapovat ovládací prvky tak, aby levý joystick řídil jízdu (X + Y) a zbytek LED efekty</li>
+<li>Přidat plynulý rozjezd a brzdění (rampa)</li>
+<li>Přidat omezení maximální rychlosti</li>
+<li>Přidat čtení ultrazvukových senzorů a ochranu proti nárazu</li>
+<li>Nastavit výchozí LED režim na duhu</li>
+</ol>
+<h2 id="konfigurace-pinu">Konfigurace pinů</h2>
+<p>Viz <a href="../../hardware/zapojeni/">schéma zapojení</a>. Definice pinů na začátku programu:</p>
+<pre><code class="language-cpp">// LED pásek
+#define NEOPIXEL_PIN  23
+#define NUM_PIXELS    40
+
+// Motor #1 (levý)
+#define RPWM1 33
+#define LPWM1 32
+
+// Motor #2 (pravý)
+#define RPWM2 26
+#define LPWM2 25
+
+// Ultrazvukový senzor #1 (levý)
+#define TRIG1 19
+#define ECHO1 18
+
+// Ultrazvukový senzor #2 (pravý)
+#define TRIG2 5
+#define ECHO2 17
+</code></pre>
+<p>V <code>setup()</code> nastavit všechny motorové piny jako výstup:</p>
+<pre><code class="language-cpp">pinMode(RPWM1, OUTPUT);
+pinMode(LPWM1, OUTPUT);
+pinMode(RPWM2, OUTPUT);
+pinMode(LPWM2, OUTPUT);
+</code></pre>
+<hr />
+<h2 id="ukol-1-diferencialni-rizeni-zataceni">Úkol 1: Diferenciální řízení (zatáčení)</h2>
+<p><strong>Cíl:</strong> Levý joystick ovládá jízdu – Y = vpřed/vzad, X = zatáčení.</p>
+<h3 id="princip">Princip</h3>
+<p>Zařízení má dva motory (levý a pravý). Zatáčení funguje tak, že jeden motor jede rychleji než druhý:</p>
+<ul>
+<li>Joystick vpřed → oba motory jedou vpřed stejně rychle</li>
+<li>Joystick vpřed + doprava → levý motor rychleji, pravý pomaleji → zatáčí doprava</li>
+<li>Joystick jen doprava (bez vpřed) → levý motor vpřed, pravý vzad → otáčení na místě</li>
+</ul>
+<h3 id="implementace">Implementace</h3>
+<pre><code class="language-cpp">// Globální proměnné pro jízdu
+float driveSpeed = 0;  // levý joystick Y (-1..1)
+float driveTurn  = 0;  // levý joystick X (-1..1)
+
+// V callbacku onValueChanged():
+driveSpeed = s.leftStickY;
+driveTurn  = s.leftStickX;
+</code></pre>
+<p>Funkce pro ovládání motorů:</p>
+<pre><code class="language-cpp">#define MAX_SPEED 0.6f    // Omezení na 60 % výkonu
+#define DEAD_ZONE 0.05f   // Ignorovat malé výchylky joysticku
+
+void moveMotors() {
+  // Dead zone
+  float speed = (abs(driveSpeed) &lt; DEAD_ZONE) ? 0 : driveSpeed;
+  float turn  = (abs(driveTurn)  &lt; DEAD_ZONE) ? 0 : driveTurn;
+
+  // Diferenciální řízení
+  float leftMotor  = speed + turn;
+  float rightMotor = speed - turn;
+
+  // Omezení maximální rychlosti
+  leftMotor  = constrain(leftMotor,  -MAX_SPEED, MAX_SPEED);
+  rightMotor = constrain(rightMotor, -MAX_SPEED, MAX_SPEED);
+
+  // Aplikovat rampu (viz Úkol 2)
+  // ...
+
+  // Nastavení PWM pro levý motor
+  driveOneMotor(RPWM1, LPWM1, leftMotor);
+  // Nastavení PWM pro pravý motor
+  driveOneMotor(RPWM2, LPWM2, rightMotor);
+}
+
+void driveOneMotor(int pinFwd, int pinBwd, float value) {
+  int pwm = abs(value) * 255;
+  if (value &gt; 0) {
+    analogWrite(pinFwd, pwm);
+    analogWrite(pinBwd, 0);
+  } else if (value &lt; 0) {
+    analogWrite(pinFwd, 0);
+    analogWrite(pinBwd, pwm);
+  } else {
+    analogWrite(pinFwd, 0);
+    analogWrite(pinBwd, 0);
+  }
+}
+</code></pre>
+<p><strong>Bezpečnostní pravidlo:</strong> Funkce <code>driveOneMotor</code> zajišťuje, že nikdy nejsou oba piny jednoho motoru aktivní současně.</p>
+<h3 id="testovani">Testování</h3>
+<ol>
+<li>Nahrajte kód, zvedněte zařízení (kola ve vzduchu)</li>
+<li>Joystick vpřed → obě kola vpřed</li>
+<li>Joystick vzad → obě kola vzad</li>
+<li>Joystick doprava → levé kolo vpřed, pravé vzad (otáčení)</li>
+<li>Pokud je směr otáčení opačný → prohoďte vodiče na jednom z motorů, nebo prohoďte RPWM/LPWM piny v kódu</li>
+<li>Teprve potom testujte na zemi</li>
+</ol>
+<hr />
+<h2 id="ukol-2-plynuly-rozjezd-a-brzdeni-rampa">Úkol 2: Plynulý rozjezd a brzdění (rampa)</h2>
+<p><strong>Cíl:</strong> Zařízení nezačne okamžitě jet plnou rychlostí a nezastaví náhle. Tím se zabrání trhání, vysypání bonbónů a překvapení dětí.</p>
+<h3 id="princip_1">Princip</h3>
+<p>Místo okamžitého nastavení rychlosti na cílovou hodnotu se aktuální rychlost postupně přibližuje k cílové:</p>
+<pre><code>cílová rychlost:    [0] ──────────── [0.6] ──────────── [0]
+aktuální rychlost:  [0] ──/────────/ [0.6] \──────────\ [0]
+                         rozjezd              brzdění
+</code></pre>
+<h3 id="implementace_1">Implementace</h3>
+<pre><code class="language-cpp">#define RAMP_RATE 2.0f  // Jak rychle se mění rychlost (jednotek za sekundu)
+
+float currentLeft  = 0;  // Aktuální rychlost levého motoru
+float currentRight = 0;  // Aktuální rychlost pravého motoru
+
+// Pomocná funkce – posuň hodnotu směrem k cíli
+float rampTowards(float current, float target, float maxStep) {
+  if (current &lt; target) {
+    return min(current + maxStep, target);
+  } else {
+    return max(current - maxStep, target);
+  }
+}
+
+void moveMotors() {
+  float speed = (abs(driveSpeed) &lt; DEAD_ZONE) ? 0 : driveSpeed;
+  float turn  = (abs(driveTurn)  &lt; DEAD_ZONE) ? 0 : driveTurn;
+
+  float targetLeft  = constrain(speed + turn, -MAX_SPEED, MAX_SPEED);
+  float targetRight = constrain(speed - turn, -MAX_SPEED, MAX_SPEED);
+
+  // Plynulá rampa
+  float dt = 0.015f;  // 15 ms smyčka
+  float maxStep = RAMP_RATE * dt;
+  currentLeft  = rampTowards(currentLeft,  targetLeft,  maxStep);
+  currentRight = rampTowards(currentRight, targetRight, maxStep);
+
+  driveOneMotor(RPWM1, LPWM1, currentLeft);
+  driveOneMotor(RPWM2, LPWM2, currentRight);
+}
+</code></pre>
+<p>Hodnotu <code>RAMP_RATE</code> dolaďte při testování – vyšší = rychlejší reakce, nižší = plynulejší rozjezd.</p>
+<hr />
+<h2 id="ukol-3-ultrazvukove-senzory-a-ochrana-proti-narazu">Úkol 3: Ultrazvukové senzory a ochrana proti nárazu</h2>
+<p><strong>Cíl:</strong> Zařízení nesmí narazit do překážky ani do osoby. Při přiblížení k překážce postupně zpomaluje a ve 15 cm úplně zastaví.</p>
+<h3 id="princip_2">Princip</h3>
+<p>Senzory měří vzdálenost. Podle naměřené vzdálenosti se omezí maximální povolená rychlost vpřed:</p>
+<table>
+<thead>
+<tr>
+<th>Vzdálenost</th>
+<th>Rychlostní limit vpřed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&gt; 40 cm</td>
+<td>100 % (bez omezení)</td>
+</tr>
+<tr>
+<td>40–15 cm</td>
+<td>Lineárně klesá na 0 %</td>
+</tr>
+<tr>
+<td>&lt; 15 cm</td>
+<td>0 % (zastavit, lze pouze couvat)</td>
+</tr>
+</tbody>
+</table>
+<p>Couvání a zatáčení nejsou omezeny – aby se zařízení mohlo od překážky vzdálit.</p>
+<h3 id="implementace_2">Implementace</h3>
+<pre><code class="language-cpp">#include &lt;Ultrasonic.h&gt;
+
+Ultrasonic sonarLeft(TRIG1, ECHO1);
+Ultrasonic sonarRight(TRIG2, ECHO2);
+
+#define DIST_STOP 15    // cm – úplné zastavení
+#define DIST_SLOW 40    // cm – začátek zpomalování
+
+// Vrátí koeficient 0.0–1.0 pro omezení rychlosti vpřed
+float getObstacleLimit() {
+  int distL = sonarLeft.read();
+  int distR = sonarRight.read();
+  int dist = min(distL, distR);  // Bereme bližší překážku
+
+  if (dist &gt;= DIST_SLOW) return 1.0f;         // Volno
+  if (dist &lt;= DIST_STOP) return 0.0f;         // Stop
+  // Lineární přechod mezi DIST_STOP a DIST_SLOW
+  return (float)(dist - DIST_STOP) / (float)(DIST_SLOW - DIST_STOP);
+}
+</code></pre>
+<p>Ve funkci <code>moveMotors()</code> aplikovat limit <strong>pouze na kladné (dopředné) rychlosti</strong>:</p>
+<pre><code class="language-cpp">float limit = getObstacleLimit();
+
+// Omezit dopředný pohyb, couvání nechat bez omezení
+if (targetLeft &gt; 0)  targetLeft  *= limit;
+if (targetRight &gt; 0) targetRight *= limit;
+</code></pre>
+<h3 id="testovani_1">Testování</h3>
+<ol>
+<li>V Serial Monitoru vypisujte naměřené vzdálenosti</li>
+<li>Přiložte ruku před senzor – zařízení by mělo zpomalit a zastavit</li>
+<li>Zkuste jet vpřed na zeď – musí plynule zastavit</li>
+<li>Ve stavu zastavení zkuste couvat – musí fungovat</li>
+</ol>
+<hr />
+<h2 id="ukol-4-premapovani-ovladacich-prvku">Úkol 4: Přemapování ovládacích prvků</h2>
+<p><strong>Cíl:</strong> Oddělit ovládání jízdy od ovládání LED, aby se nic nepletlo.</p>
+<h3 id="vysledne-mapovani">Výsledné mapování</h3>
+<p>V dodaném kódu levý joystick ovládá jak motor, tak barvu LED. To je potřeba rozdělit:</p>
+<table>
+<thead>
+<tr>
+<th>Prvek</th>
+<th>Funkce</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Levý joystick Y</strong></td>
+<td>Rychlost vpřed/vzad</td>
+</tr>
+<tr>
+<td><strong>Levý joystick X</strong></td>
+<td>Zatáčení</td>
+</tr>
+<tr>
+<td><strong>Pravý joystick X</strong></td>
+<td>Rychlost LED animace</td>
+</tr>
+<tr>
+<td><strong>Pravý joystick Y</strong></td>
+<td>Jas LED</td>
+</tr>
+<tr>
+<td><strong>A / B / X / Y</strong></td>
+<td>Přepínání LED režimů (zachovat)</td>
+</tr>
+<tr>
+<td><strong>D-pad ←→</strong></td>
+<td>Změna barvy LED (posun hue)</td>
+</tr>
+<tr>
+<td><strong>LT / RT</strong></td>
+<td>Barevný nádech v režimu dýchání (zachovat)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="zmena-barvy-led-pres-d-pad">Změna barvy LED přes D-pad</h3>
+<p>Místo ovládání barvy levým joystickem (ten teď řídí jízdu) přepnout na D-pad:</p>
+<pre><code class="language-cpp">uint16_t ledHue = 0;  // 0–65535, aktuální barva
+#define HUE_STEP 2000  // Krok při stisku D-padu
+
+// V callbacku onValueChanged():
+if (s.dpadLeft)  ledHue -= HUE_STEP;
+if (s.dpadRight) ledHue += HUE_STEP;
+// Hue se automaticky přetáčí (uint16_t overflow = OK)
+</code></pre>
+<p>Funkci <code>colorFromLeftStick()</code> přejmenujte/upravte na:</p>
+<pre><code class="language-cpp">uint32_t currentColor() {
+  return strip.gamma32(strip.ColorHSV(ledHue, 255, 255));
+}
+</code></pre>
+<hr />
+<h2 id="ukol-5-vychozi-led-rezim-a-odpojeni-ovladace">Úkol 5: Výchozí LED režim a odpojení ovladače</h2>
+<h3 id="vychozi-rezim-po-pripojeni">Výchozí režim po připojení</h3>
+<p>Po spárování ovladače se LED přepnou do režimu <strong>duha</strong> (<code>modeRainbow</code>). V kódu:</p>
+<pre><code class="language-cpp">// V setup() nebo při detekci připojení:
+currentMode = 2;  // duha jako výchozí
+</code></pre>
+<h3 id="chovani-pri-odpojeni-ovladace">Chování při odpojení ovladače</h3>
+<p>Již implementováno v dodaném kódu – červené pulzování. Navíc je potřeba zajistit <strong>okamžité zastavení motorů</strong>:</p>
+<pre><code class="language-cpp">if (!controller.isConnected()) {
+  // Zastavit motory!
+  analogWrite(RPWM1, 0); analogWrite(LPWM1, 0);
+  analogWrite(RPWM2, 0); analogWrite(LPWM2, 0);
+  currentLeft = 0;
+  currentRight = 0;
+
+  // Červené pulzování (existující kód)
+  // ...
+}
+</code></pre>
+<hr />
+<h2 id="struktura-vysledneho-programu">Struktura výsledného programu</h2>
+<pre><code>mymachine.ino (výsledný)
+│
+├── #define a konstanty
+│   ├── Piny (motory, LED, senzory)
+│   ├── MAX_SPEED, DEAD_ZONE, RAMP_RATE
+│   └── DIST_STOP, DIST_SLOW
+│
+├── Globální proměnné
+│   ├── Stav ovladače (driveSpeed, driveTurn, ledHue, ...)
+│   ├── Stav motorů (currentLeft, currentRight)
+│   └── Stav LED (currentMode, animSpeedFactor, globalBrightness)
+│
+├── onValueChanged(state)      ← callback ovladače
+│   ├── Uloží joysticky do globálních proměnných
+│   ├── Zpracuje tlačítka (A/B/X/Y → LED režim)
+│   └── Zpracuje D-pad (hue posun)
+│
+├── getObstacleLimit()         ← čtení ultrazvuků → koeficient 0–1
+├── rampTowards(cur, target)   ← plynulá rampa
+├── driveOneMotor(fwd, bwd, v) ← bezpečné nastavení jednoho motoru
+├── moveMotors()               ← diferenciální řízení + rampa + limit senzorů
+│
+├── LED efekty (ponechat z dodaného kódu)
+│   ├── modeSolidColor()
+│   ├── modeMovingDot()
+│   ├── modeRainbow()
+│   └── modeBreathing()
+│
+├── setup()
+│   ├── Inicializace pinů, Serial, LED, Bluetooth
+│   └── Výchozí režim = duha
+│
+└── loop()
+    ├── Kontrola připojení (odpojeno → stop + červené pulzování)
+    ├── LED efekt podle currentMode
+    ├── strip.show()
+    ├── moveMotors()
+    └── delay(15)
+</code></pre>
+<hr />
+<h2 id="nahrani-kodu-na-esp32">Nahrání kódu na ESP32</h2>
+<ol>
+<li>Otevřete <code>mymachine.ino</code> v Arduino IDE</li>
+<li>Nainstalujte potřebné knihovny (viz <a href="../sw/">ESP32 program</a>)</li>
+<li>V menu <strong>Tools → Board</strong> vyberte <strong>ESP32 Dev Module</strong></li>
+<li>V menu <strong>Tools → Port</strong> vyberte COM port s ESP32</li>
+<li>Klikněte na <strong>Upload</strong> (šipka doprava)</li>
+<li>Pokud nahrávání selže, zkuste podržet tlačítko <strong>BOOT</strong> na ESP32 během nahrávání</li>
+<li>Po nahrání otevřete <strong>Serial Monitor</strong> (115200 baud) pro kontrolu výpisů</li>
+</ol>
+<h2 id="ladeni">Ladění</h2>
+<p>Program by měl vypisovat na sériový monitor:</p>
+<pre><code>lx: 0.00, ly: 0.50, rx: -0.30, ry: 0.00 | dist: 45/120 cm | L: 0.30 R: 0.28
+</code></pre>
+<p>Doporučené výpisy pro ladění:
+- Pozice joysticků (již existuje)
+- Vzdálenosti ze senzorů
+- Aktuální rychlosti motorů (po rampě a limitu)</p>
+<h2 id="poradi-implementace">Pořadí implementace</h2>
+<p>Doporučený postup – od nejdůležitějšího po nejméně kritické:</p>
+<table>
+<thead>
+<tr>
+<th>Pořadí</th>
+<th>Úkol</th>
+<th>Důvod</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.</td>
+<td>Diferenciální řízení (Úkol 1)</td>
+<td>Bez toho zařízení nezatáčí</td>
+</tr>
+<tr>
+<td>2.</td>
+<td>Omezení rychlosti + rampa (Úkol 2)</td>
+<td>Bezpečnost</td>
+</tr>
+<tr>
+<td>3.</td>
+<td>Ultrazvukové senzory (Úkol 3)</td>
+<td>Ochrana proti nárazu</td>
+</tr>
+<tr>
+<td>4.</td>
+<td>Přemapování ovládání (Úkol 4)</td>
+<td>Čistota ovládání</td>
+</tr>
+<tr>
+<td>5.</td>
+<td>Výchozí režim + odpojení (Úkol 5)</td>
+<td>Dokončení</td>
+</tr>
+</tbody>
+</table>
+<p>Každý úkol testujte samostatně, než přejdete na další.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../sw/" class="btn btn-neutral float-left" title="ESP32 program"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../manual/" class="btn btn-neutral float-right" title="Návod k obsluze">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/BrnoMarsRover/myMachine-Fan" class="fa fa-code-fork" style="color: #fcfcfc"> BrnoMarsRover/myMachine-Fan</a>
+        </span>
+    
+    
+      <span><a href="../sw/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../manual/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Sestavení zařízení - My Machine Chodící Větrák</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Sestaven\u00ed za\u0159\u00edzen\u00ed";
+        var mkdocs_page_input_path = "construction/sestaveni.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> My Machine Chodící Větrák
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../big_picture/">Dětský Vynález</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Komponenty</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../komponenty/">Nákupní seznam</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../rozborka/">Rozborka větráku</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../3d_tisk/">3D tištěné díly</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../kostym/">Kostým a dekorace</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Sestavení zařízení</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#krok-1-priprava-3d-tisteneho-podvozku">Krok 1: Příprava 3D tištěného podvozku</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#krok-2-montaz-motoru-a-kol">Krok 2: Montáž motorů a kol</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#krok-3-priprava-elektroniky-na-prototypovacim-pcb">Krok 3: Příprava elektroniky na prototypovacím PCB</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#krok-4-montaz-motor-driveru">Krok 4: Montáž motor driverů</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#krok-5-osazeni-esp32">Krok 5: Osazení ESP32</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#krok-6-montaz-ultrazvukovych-senzoru">Krok 6: Montáž ultrazvukových senzorů</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#krok-7-kontrola-kabelaze-sloupku">Krok 7: Kontrola kabeláže sloupku</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#krok-8-montaz-hlavice-dc-dc-menic-a-led-pasek">Krok 8: Montáž hlavice – DC-DC měnič a LED pásek</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#krok-9-vlozeni-baterie-a-test">Krok 9: Vložení baterie a test</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#krok-10-nadobka-na-bonbony">Krok 10: Nádobka na bonbóny</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#krok-11-nasazeni-mexickeho-kostymu">Krok 11: Nasazení mexického kostýmu</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#hotovo">Hotovo!</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Hardware</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../hardware/pinout/">Schéma</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../hardware/zapojeni/">Návod na zapojení</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../hardware/hw/">Připravené komponenty</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Software</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../software/sw/">ESP32 program</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../software/firmware/">Popis firmware</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../manual/">Návod k obsluze</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/">Řešení problémů</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">My Machine Chodící Větrák</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Komponenty</li>
+      <li class="breadcrumb-item active">Sestavení zařízení</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/BrnoMarsRover/myMachine-Fan/edit/main/docs/construction/sestaveni.md">Edit on BrnoMarsRover/myMachine-Fan</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="sestaveni-zarizeni">Sestavení zařízení</h1>
+<p>Tento návod popisuje krok za krokem, jak sestavit celé zařízení od jednotlivých dílů až po funkční pojízdný větrák.</p>
+<p><strong>Než začnete</strong>, ujistěte se, že máte:</p>
+<ul>
+<li>Všechny komponenty ze <a href="../komponenty/">seznamu</a></li>
+<li>Rozložený větrák podle <a href="../rozborka/">návodu na rozborku</a></li>
+<li>Vytištěné <a href="../3d_tisk/">3D díly</a></li>
+<li>Přečtený <a href="../../hardware/zapojeni/">návod na zapojení</a></li>
+</ul>
+<h2 id="krok-1-priprava-3d-tisteneho-podvozku">Krok 1: Příprava 3D tištěného podvozku</h2>
+<!-- TODO: Přidat fotku vytištěného podvozku -->
+
+<ol>
+<li>Podvozek obdržíte <strong>již vytištěný</strong> (vyžaduje velkoformátovou tiskárnu) – zkontrolujte, že nemá poškození z přepravy</li>
+<li>Pokud je potřeba, začistěte hrany (pilníkem nebo nožem)</li>
+<li>Přišroubujte <strong>opěrné kuličky</strong> (4 ks) do připravených otvorů na spodní straně podvozku – kuličky zajišťují stabilitu a umožňují volný pohyb</li>
+<li>Vložte <strong>ložiska do kol</strong> (2× ZKL 626-2Z) do připravených otvorů pro osy. Díry pro ložiska jsou záměrně tištěná bez vůlí, bude třeba je lehce protáhnout pilníkem, aby ložisko uvnitř nelítalo</li>
+</ol>
+<h2 id="krok-2-montaz-motoru-a-kol">Krok 2: Montáž motorů a kol</h2>
+<!-- TODO: Přidat fotku namontovaných motorů -->
+
+<ol>
+<li>Vložte oba motory <strong>JGY-370</strong> do připravených úchytů v podvozku</li>
+<li>Připevněte motory šroubky ze spodní strany za pomoci dodaných plasových držáků</li>
+<li>Dle výkresu obrobte příruby spojující osu motoru s kolem</li>
+<li>Sestavte uchycení kola, zajistěte ložisko 3D tištěným dílem a červíky zajistěte kolo a osu motoru</li>
+<li>Zkontrolujte, že se kola volně otáčejí a nebrzdí o podvozek</li>
+</ol>
+<h2 id="krok-3-priprava-elektroniky-na-prototypovacim-pcb">Krok 3: Příprava elektroniky na prototypovacím PCB</h2>
+<p>V podvozku jsou dva univerzální plošné spoje. Na ně zapájíte konektory pro propojení elektroniky.</p>
+<!-- TODO: Přidat fotku hotového PCB s popisky -->
+
+<ol>
+<li>Napájejte konektory JST-XH na PCB (pro motory, senzory, napájení)</li>
+<li>Zapájejte napájecí rozvod:</li>
+<li>24V přívod z baterie</li>
+<li>Výstup na motor drivery (24V)</li>
+<li>Výstup na step-down měnič (24V vstup → 5V výstup pro ESP32)</li>
+<li>Zapájejte signálové vodiče z ESP32 pinů ke konektorům</li>
+<li>Podrobný postup viz <a href="../../hardware/zapojeni/">návod na zapojení</a></li>
+</ol>
+<h2 id="krok-4-montaz-motor-driveru">Krok 4: Montáž motor driverů</h2>
+<!-- TODO: Přidat fotku motor driverů v podvozku -->
+
+<ol>
+<li>Umístěte oba moduly <strong>BTS7960B</strong> do podvozku drivery jsou dodávány s chladiči, pro naše motory by ale neměly být třeba a tak pro ně ani není navrhnuté dostatečné místo</li>
+<li>Připevněte šroubky</li>
+<li>Propojte motor drivery s PCB pomocí připravených konektorů:</li>
+<li>Výkonové napájení (24V) a GND</li>
+<li>Signálové napájení (5V) a GND</li>
+<li>
+<p>Signálové vodiče (RPWM, LPWM)</p>
+</li>
+<li>
+<p>Připojte vodiče motorů k výstupům M+/M- na motor driverech</p>
+</li>
+</ol>
+<h2 id="krok-5-osazeni-esp32">Krok 5: Osazení ESP32</h2>
+<!-- TODO: Přidat fotku ESP32 v podvozku -->
+
+<ol>
+<li>ESP32 umístěte na PCB (ideálně do dutinkové patice, aby šla snadno vyměnit)</li>
+<li>Propojte s napájením (5V z měniče na VIN (5V) pin, GND)</li>
+<li><strong>Před zapnutím</strong> zkontrolujte multimetrem napětí na step-down měniči (musí být 5V!)</li>
+<li>Zapojte signálové vodiče ke konektorům na PCB</li>
+</ol>
+<h2 id="krok-6-montaz-ultrazvukovych-senzoru">Krok 6: Montáž ultrazvukových senzorů</h2>
+<ol>
+<li>Senzory <strong>HC-SR05</strong> vtlačte do připravených otvorů v podvozku (nejsou šroubované) zajistit je po odzkoušení celého zařízení můžete například tavnou pistolí</li>
+<li>Připojte konektory senzorů na PCB (VCC, GND, TRIG, ECHO)</li>
+</ol>
+<!-- TODO: Přidat fotku senzorů v podvozku, doplnit kam přesně směřují -->
+
+<h2 id="krok-7-kontrola-kabelaze-sloupku">Krok 7: Kontrola kabeláže sloupku</h2>
+<p>Toto je klíčový krok – sloupek spojuje podvozek s hlavicí větráku a vedou jím kabely.</p>
+<ol>
+<li>Sloupkem jsou protaženy:</li>
+<li><strong>Napájecí kabel</strong> (24V pro motor ventilátoru a 3.7V DC-DC měnič v hlavici, GND)</li>
+<li><strong>Žlutý signálový drát</strong> pro LED pásek (datový pin GPIO 23)</li>
+<li>Zkontrolujte kontinuitou multimetru, že je mezi základnou a hlavicí kontakt.</li>
+<li>Případný postup rozebírání/skládání konektorů ve sloupku viz <a href="../rozborka/">rozborka</a>.</li>
+</ol>
+<p><img alt="LED konektor v hlavici" src="../../images/hw/LED_konektor_hlavice.jpg" />
+<img alt="LED konektor v podstavci" src="../../images/hw/LED_konektor_baze.jpg" /></p>
+<h2 id="krok-8-montaz-hlavice-dc-dc-menic-a-led-pasek">Krok 8: Montáž hlavice – DC-DC měnič a LED pásek</h2>
+<ol>
+<li>Do hlavice umístěte <strong>step-down měnič LM2596</strong> nastavený na <strong>3.7V</strong></li>
+<li>Vstup: 24V z kabelu vedeného sloupkem</li>
+<li>Výstup: 3.7V pro LED pásek</li>
+</ol>
+<p><img alt="Pozice DC-DC měniče" src="../../images/hw/dcdc_misto.jpg" /></p>
+<ol>
+<li>LED pásek <strong>WS2812</strong> připevněte utahovacími pásky podél obvodu klece větráku</li>
+<li><strong>Pozor na kabeláž, není moc kvalitní</strong></li>
+<li>Datový vstup (DIN) připojte na žlutý signálový drát z trubky</li>
+<li>Napájení (VCC + GND) připojte na výstup DC-DC měniče (3.7V)</li>
+</ol>
+<p><img alt="LED pásek na kleci" src="../../images/hw/LED_pasek.jpg" /></p>
+<ol>
+<li>Nasaďte hlavici zpět na sloupek a zajistěte šroubky</li>
+</ol>
+<h2 id="krok-9-vlozeni-baterie-a-test">Krok 9: Vložení baterie a test</h2>
+<ol>
+<li>Vložte baterii zpět do přihrádky (pozor na pogo piny!)</li>
+<li>Zapněte zařízení</li>
+<li>Ověřte, že všechny komponenty opravdu dostávají korektní napájecí napětí a jsou propojeny přes datové vodiče všude, kde je třeba.</li>
+</ol>
+<h2 id="krok-10-nadobka-na-bonbony">Krok 10: Nádobka na bonbóny</h2>
+<!-- TODO: Doplnit popis umístění nádobky – je součástí 3D tištěných dílů -->
+<!-- TODO: Přidat fotku nádobky na bonbóny -->
+
+<ol>
+<li>Připevněte 3D tištěnou nádobku na bonbóny na určené místo na zařízení</li>
+<li>V procesu je třeba provrtat sloupek a 3D tištěný díl zajistit osičkou. Bylo by dobré na její konce opatřit závity a zajistit ji tak proti vysunutí</li>
+</ol>
+<h2 id="krok-11-nasazeni-mexickeho-kostymu">Krok 11: Nasazení mexického kostýmu</h2>
+<ol>
+<li>Umístěte <strong>sombrero</strong> na vršek hlavice (uchycení přes ložisko)</li>
+<li>Navlékněte <strong>poncho</strong> na tělo větráku</li>
+<li>Zkontrolujte, že dekorace:</li>
+<li>Neblokuje kola</li>
+<li>Neblokuje ventilaci</li>
+<li>Nezakrývá ultrazvukové senzory</li>
+<li>Nespadává při jízdě</li>
+</ol>
+<p>Podrobnosti viz <a href="../kostym/">Kostým a dekorace</a>.</p>
+<h2 id="hotovo">Hotovo!</h2>
+<p>Pokud jste úspěšně prošli všemi kroky, máte sestaveného mexického "chodící" větrák. Nyní je třba opatřit ho příslušným ovládacím SW.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../kostym/" class="btn btn-neutral float-left" title="Kostým a dekorace"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../hardware/pinout/" class="btn btn-neutral float-right" title="Schéma">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/BrnoMarsRover/myMachine-Fan" class="fa fa-code-fork" style="color: #fcfcfc"> BrnoMarsRover/myMachine-Fan</a>
+        </span>
+    
+    
+      <span><a href="../kostym/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../hardware/pinout/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Řešení problémů - My Machine Chodící Větrák</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\u0158e\u0161en\u00ed probl\u00e9m\u016f";
+        var mkdocs_page_input_path = "troubleshooting.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> My Machine Chodící Větrák
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../big_picture/">Dětský Vynález</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Komponenty</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../construction/komponenty/">Nákupní seznam</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../construction/rozborka/">Rozborka větráku</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../construction/3d_tisk/">3D tištěné díly</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../construction/kostym/">Kostým a dekorace</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../construction/sestaveni/">Sestavení zařízení</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Hardware</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../hardware/pinout/">Schéma</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hardware/zapojeni/">Návod na zapojení</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hardware/hw/">Připravené komponenty</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Software</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../software/sw/">ESP32 program</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../software/firmware/">Popis firmware</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../manual/">Návod k obsluze</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Řešení problémů</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#esp32-se-nepripoji-k-pocitaci">ESP32 se nepřipojí k počítači</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#kod-se-nenahraje-na-esp32">Kód se nenahraje na ESP32</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#xbox-ovladac-se-nesparuje">Xbox ovladač se nespáruje</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#motory-se-netoci">Motory se netočí</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#motory-se-toci-spatnym-smerem">Motory se točí špatným směrem</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#vetrak-nejede-rovne">Větrák nejede rovně</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#led-pasek-nesviti">LED pásek nesvítí</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#led-pasek-blika-nebo-zobrazuje-nahodne-barvy">LED pásek bliká nebo zobrazuje náhodné barvy</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ultrazvukove-senzory-nefunguji">Ultrazvukové senzory nefungují</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#baterie-se-rychle-vybiji">Baterie se rychle vybíjí</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#stale-nevyreseno">Stále nevyřešeno?</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">My Machine Chodící Větrák</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Řešení problémů</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/BrnoMarsRover/myMachine-Fan/edit/main/docs/troubleshooting.md">Edit on BrnoMarsRover/myMachine-Fan</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="reseni-problemu">Řešení problémů</h1>
+<p>Zde najdete řešení nejčastějších problémů při sestavování a provozu zařízení.</p>
+<h2 id="esp32-se-nepripoji-k-pocitaci">ESP32 se nepřipojí k počítači</h2>
+<p><strong>Příznaky:</strong> Po připojení USB kabelu se v Arduino IDE neobjeví COM port.</p>
+<p><strong>Řešení:</strong></p>
+<ol>
+<li>Nainstalujte ovladač CP2102: <a href="https://www.silabs.com/software-and-tools/usb-to-uart-bridge-vcp-drivers?tab=">stáhnout zde</a></li>
+<li>Zkuste jiný USB kabel – některé kabely jsou pouze nabíjecí (nemají datové vodiče)</li>
+<li>Zkuste jiný USB port na počítači</li>
+<li>Na Windows: zkontrolujte ve Správci zařízení, zda se zařízení zobrazuje (i s chybou)</li>
+<li>Restartujte počítač po instalaci ovladače</li>
+</ol>
+<h2 id="kod-se-nenahraje-na-esp32">Kód se nenahraje na ESP32</h2>
+<p><strong>Příznaky:</strong> Arduino IDE hlásí chybu při nahrávání (upload failed, timeout).</p>
+<p><strong>Řešení:</strong></p>
+<ol>
+<li>Zkontrolujte, že máte vybranou správnou desku: <strong>Tools → Board → ESP32 Dev Module</strong></li>
+<li>Zkontrolujte, že máte vybraný správný COM port: <strong>Tools → Port</strong></li>
+<li>Zkuste podržet tlačítko <strong>BOOT</strong> na ESP32 během nahrávání (podržte ho těsně před tím, než nahrávání začne hledat desku)</li>
+<li>Zkontrolujte, že není otevřený Serial Monitor (může blokovat port)</li>
+<li>Zkuste snížit Upload Speed v nastavení na 115200</li>
+</ol>
+<h2 id="xbox-ovladac-se-nesparuje">Xbox ovladač se nespáruje</h2>
+<p><strong>Příznaky:</strong> LED na větráku stále červeně pulzují, ovladač bliká a nepřipojí se.</p>
+<p><strong>Řešení:</strong></p>
+<ol>
+<li>Zkontrolujte, že ovladač má nabité baterie (AA)</li>
+<li>Vypněte a znovu zapněte ESP32</li>
+<li>Vypněte a znovu zapněte ovladač (podržet Xbox tlačítko)</li>
+<li>Ujistěte se, že ovladač není spárovaný s jiným zařízením (Xbox, PC) v dosahu – vypněte ostatní Bluetooth zařízení</li>
+<li>Zkuste ovladač resetovat: podržte malé tlačítko na zadní straně ovladače (u USB-C portu) a pak znovu zapněte</li>
+</ol>
+<!-- TODO: Ověřit přesný postup prvního párování s BLE-Gamepad-Client knihovnou -->
+
+<h2 id="motory-se-netoci">Motory se netočí</h2>
+<p><strong>Příznaky:</strong> Ovladač je spárovaný (LED svítí barevně), ale motory nereagují na joystick.</p>
+<p><strong>Řešení:</strong></p>
+<ol>
+<li><strong>Zkontrolujte napájení</strong> – motor drivery potřebují 24V přímo z baterie</li>
+<li><strong>Zkontrolujte zapojení pinů</strong> – RPWM na GPIO 33, LPWM na GPIO 32 (viz <a href="../hardware/zapojeni/">zapojení</a>)</li>
+<li><strong>Zkontrolujte společnou zem</strong> – GND ESP32 musí být propojený s GND motor driveru</li>
+<li><strong>Zkontrolujte EN piny</strong> – R_EN a L_EN na motor driveru musí být připojeny na 5V (nebo HIGH)</li>
+<li><strong>Otevřete Serial Monitor</strong> (115200 baud) a pohybujte joystickem – měli byste vidět měnící se hodnoty <code>ly</code></li>
+<li>Pokud vidíte hodnoty, ale motor se netočí → problém je v zapojení hardware</li>
+<li>Pokud nevidíte hodnoty → ovladač nekomunikuje správně</li>
+</ol>
+<h2 id="motory-se-toci-spatnym-smerem">Motory se točí špatným směrem</h2>
+<p><strong>Příznaky:</strong> Při pohybu joystickem vpřed jede větrák vzad (nebo doleva místo doprava).</p>
+<p><strong>Řešení:</strong></p>
+<ul>
+<li><strong>Prohoďte vodiče na motoru</strong> (přehoďte M+ a M- na motor driveru), nebo</li>
+<li><strong>Prohoďte RPWM a LPWM</strong> piny v kódu (upravte <code>#define</code>)</li>
+</ul>
+<h2 id="vetrak-nejede-rovne">Větrák nejede rovně</h2>
+<p><strong>Příznaky:</strong> Při pohybu vpřed zatáčí na jednu stranu.</p>
+<p><strong>Řešení:</strong></p>
+<ol>
+<li>Zkontrolujte, že obě kola mají stejný odpor (volně se otáčejí)</li>
+<li>Zkontrolujte, že opěrné kuličky se volně otáčejí</li>
+<li>V kódu přidejte korekční faktor – jednomu motoru snižte rychlost o pár procent:</li>
+</ol>
+<pre><code class="language-cpp">// Příklad korekce – pomalý motor pojede o 10 % rychleji
+float korekce = 1.10;
+analogWrite(RPWM_pomalejsi, rychlost * korekce * 255);
+</code></pre>
+<h2 id="led-pasek-nesviti">LED pásek nesvítí</h2>
+<p><strong>Příznaky:</strong> Ovladač je spárovaný, ale LED pásek zůstává zhasnutý.</p>
+<p><strong>Řešení:</strong></p>
+<ol>
+<li><strong>Zkontrolujte napájení</strong> – měřte multimetrem napětí na výstupu DC-DC měniče v hlavici (má být 3.7V)</li>
+<li><strong>Zkontrolujte datový vodič</strong> – žlutý drát musí být propojený od GPIO 23 na ESP32 přes trubku až k DIN vstupu LED pásku</li>
+<li><strong>Zkontrolujte směr pásku</strong> – na pásku jsou malé šipky, data tečou ve směru šipek. DIN (data in) musí být na začátku</li>
+<li><strong>Zkontrolujte GND</strong> – GND LED pásku musí být propojený se společnou zemí</li>
+<li>Zkuste jednoduchý testovací kód:</li>
+</ol>
+<pre><code class="language-cpp">#include &lt;Adafruit_NeoPixel.h&gt;
+Adafruit_NeoPixel strip(40, 23, NEO_GRB + NEO_KHZ800);
+void setup() {
+  strip.begin();
+  strip.setBrightness(50);
+  for (int i = 0; i &lt; 40; i++) {
+    strip.setPixelColor(i, strip.Color(0, 255, 0)); // zelená
+  }
+  strip.show();
+}
+void loop() {}
+</code></pre>
+<p>Pokud s tímto kódem pásek svítí, problém je v hlavním firmware. Pokud nesvítí, problém je v zapojení.</p>
+<h2 id="led-pasek-blika-nebo-zobrazuje-nahodne-barvy">LED pásek bliká nebo zobrazuje náhodné barvy</h2>
+<p><strong>Příznaky:</strong> LED pásek svítí, ale barvy jsou náhodné nebo bliká.</p>
+<p><strong>Řešení:</strong></p>
+<ol>
+<li><strong>Špatný signál</strong> – datový vodič je příliš dlouhý nebo nekvalitní spoj. Zkontrolujte pájení.</li>
+<li><strong>Rušení</strong> – zkuste přidat 470Ω rezistor do datového vodiče (mezi GPIO 23 a DIN)</li>
+<li><strong>Nedostatečné napájení</strong> – pokud svítí hodně LED najednou na plný jas, proud může být nedostatečný. Zkuste snížit jas v kódu.</li>
+<li><strong>Špatný počet LED</strong> – v kódu je nastaveno <code>NUM_PIXELS 40</code>, zkontrolujte, že váš pásek má skutečně 40 LED</li>
+</ol>
+<h2 id="ultrazvukove-senzory-nefunguji">Ultrazvukové senzory nefungují</h2>
+<p><strong>Příznaky:</strong> Zařízení nereaguje na překážky.</p>
+<p><strong>Řešení:</strong></p>
+<ol>
+<li>Zkontrolujte zapojení pinů TRIG a ECHO</li>
+<li>Zkontrolujte napájení senzorů (VCC = 5V)</li>
+<li>Zkontrolujte, že senzory nejsou zakryté (poncho, bonbónová nádobka)</li>
+<li>Otestujte senzor jednoduchým kódem:</li>
+</ol>
+<pre><code class="language-cpp">#include &lt;Ultrasonic.h&gt;
+// TODO: Doplnit skutečné piny TRIG a ECHO
+Ultrasonic ultrasonic(TRIG_PIN, ECHO_PIN);
+void setup() {
+  Serial.begin(115200);
+}
+void loop() {
+  int distance = ultrasonic.read();
+  Serial.print(&quot;Vzdálenost: &quot;);
+  Serial.print(distance);
+  Serial.println(&quot; cm&quot;);
+  delay(500);
+}
+</code></pre>
+<h2 id="baterie-se-rychle-vybiji">Baterie se rychle vybíjí</h2>
+<p><strong>Řešení:</strong></p>
+<ol>
+<li>Neponechávejte zařízení zapnuté, když ho nepoužíváte</li>
+<li>Snižte jas LED pásku (méně proudu)</li>
+<li>Při stání nebudíte motory (dead zone v kódu to zajišťuje)</li>
+<li>Zkontrolujte, že nikde není zkrat (měřte proud multimetrem)</li>
+</ol>
+<h2 id="stale-nevyreseno">Stále nevyřešeno?</h2>
+<p>Pokud problém přetrvává:</p>
+<ol>
+<li>Otevřete <strong>Serial Monitor</strong> v Arduino IDE (115200 baud) a sledujte výpisy</li>
+<li>Zkontrolujte všechny spoje multimetrem (napětí, kontinuita)</li>
+<li>Zkuste problém izolovat – odpojte vše a testujte komponenty jednotlivě</li>
+<li>Obraťte se na autory projektu nebo založte issue v <a href="https://github.com/BrnoMarsRover/myMachine-Fan/issues">repozitáři na GitHubu</a></li>
+</ol>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../manual/" class="btn btn-neutral float-left" title="Návod k obsluze"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/BrnoMarsRover/myMachine-Fan" class="fa fa-code-fork" style="color: #fcfcfc"> BrnoMarsRover/myMachine-Fan</a>
+        </span>
+    
+    
+      <span><a href="../manual/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
