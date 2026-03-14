@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>3D tištěné díly - My Machine Chodící Větrák</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "3D ti\u0161t\u011bn\u00e9 d\u00edly";
+        var mkdocs_page_input_path = "construction/3d_tisk.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> My Machine Chodící Větrák
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../big_picture/">Dětský Vynález</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Komponenty</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../komponenty/">Nákupní seznam</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../rozborka/">Rozborka větráku</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">3D tištěné díly</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#soubory-pro-tisk-a-vykresy">Soubory pro tisk a výkresy</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#seznam-3d-tistenych-dilu">Seznam 3D tištěných dílů</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#podvozek-dodan-vytisteny">Podvozek (dodán vytištěný)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#kola-a-pohon">Kola a pohon</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#uchyceni-klobouku">Uchycení klobouku</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#nadobka-na-bonbony">Nádobka na bonbóny</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#doporucene-nastaveni-tisku">Doporučené nastavení tisku</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#priprava-po-tisku">Příprava po tisku</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tipy">Tipy</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../kostym/">Kostým a dekorace</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sestaveni/">Sestavení zařízení</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Hardware</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../hardware/pinout/">Schéma</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../hardware/zapojeni/">Návod na zapojení</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../hardware/hw/">Připravené komponenty</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Software</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../software/sw/">ESP32 program</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../software/firmware/">Popis firmware</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../manual/">Návod k obsluze</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/">Řešení problémů</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">My Machine Chodící Větrák</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Komponenty</li>
+      <li class="breadcrumb-item active">3D tištěné díly</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/BrnoMarsRover/myMachine-Fan/edit/main/docs/construction/3d_tisk.md">Edit on BrnoMarsRover/myMachine-Fan</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3d-tistene-dily">3D tištěné díly</h1>
+<p>Několik dílů zařízení je vyrobeno 3D tiskem. Tato stránka popisuje seznam dílů, kde najít soubory a doporučené nastavení tisku.</p>
+<p><strong>Poznámka:</strong> Podvozek bude pro střední školu již <strong>vytištěn a dodán</strong>, protože vyžaduje velkoformátovou 3D tiskárnu. Ostatní menší díly si lze vytisknout na běžné tiskárně.</p>
+<h2 id="soubory-pro-tisk-a-vykresy">Soubory pro tisk a výkresy</h2>
+<p>Všechny soubory najdete ve složce <a href="https://github.com/BrnoMarsRover/myMachine-Fan/tree/main/3D"><code>3D/</code></a> v repozitáři. K dispozici jsou STL soubory (pro tisk) i STEP soubory (pro úpravu v CAD).</p>
+<p>Technické výkresy obráběných dílů:</p>
+<ul>
+<li><a href="https://github.com/BrnoMarsRover/myMachine-Fan/blob/main/3D/Spojka.pdf"><code>Spojka.pdf</code></a> – výkres příruby (spojky) mezi osou motoru a kolem</li>
+<li><a href="https://github.com/BrnoMarsRover/myMachine-Fan/blob/main/3D/klobouk_vykres.pdf"><code>klobouk_vykres.pdf</code></a> – výkres klobouku</li>
+<li><a href="https://github.com/BrnoMarsRover/myMachine-Fan/blob/main/3D/tyc_vetrak.pdf"><code>tyc_vetrak.pdf</code></a> – výkres tyče větráku</li>
+</ul>
+<h2 id="seznam-3d-tistenych-dilu">Seznam 3D tištěných dílů</h2>
+<h3 id="podvozek-dodan-vytisteny">Podvozek (dodán vytištěný)</h3>
+<table>
+<thead>
+<tr>
+<th>Díl</th>
+<th>Soubor</th>
+<th>Počet kusů</th>
+<th>Poznámka</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Podvozek</td>
+<td><code>Podvozek No History.step</code></td>
+<td>1</td>
+<td><strong>Dodán vytištěný.</strong> Velkoformátový tisk.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="kola-a-pohon">Kola a pohon</h3>
+<table>
+<thead>
+<tr>
+<th>Díl</th>
+<th>Soubor</th>
+<th>Počet kusů</th>
+<th>Poznámka</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kolo</td>
+<td><code>kolo.stl</code> / <code>kolo.step</code></td>
+<td>2</td>
+<td>Kola na motory</td>
+</tr>
+<tr>
+<td>Guma na kolo</td>
+<td><code>guma_final.stl</code></td>
+<td>2</td>
+<td>Pryžový (TPU) oběžný pás na kolo</td>
+</tr>
+<tr>
+<td>Adaptér osy motoru</td>
+<td><code>motor_osa.stl</code> / <code>motor_osa.step</code></td>
+<td>2</td>
+<td>Spojení osy motoru JGY-370 s kolem</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Adaptér osy motoru" src="../../images/motor_osa.png" /></p>
+<h3 id="uchyceni-klobouku">Uchycení klobouku</h3>
+<table>
+<thead>
+<tr>
+<th>Díl</th>
+<th>Soubor</th>
+<th>Počet kusů</th>
+<th>Poznámka</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Uchycení klobouku</td>
+<td><code>uchyceni_klobouku.stl</code> / <code>.step</code></td>
+<td>1</td>
+<td>Hlavní díl pro nasazení sombrera</td>
+</tr>
+<tr>
+<td>Uchycení ložiska klobouku</td>
+<td><code>uchyceni_loziska_klobouku.stl</code></td>
+<td>1</td>
+<td>Lůžko pro ložisko ZKL 51101A</td>
+</tr>
+<tr>
+<td>Krytka ložiska</td>
+<td><code>krytka_lozisko.stl</code> / <code>.step</code></td>
+<td>1</td>
+<td>Krytka zajišťující ložisko</td>
+</tr>
+<tr>
+<td>Zarážka klobouku</td>
+<td><code>zarazka_klobouku.stl</code></td>
+<td>1</td>
+<td>Zajišťuje klobouk proti sejmutí</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Uchycení klobouku" src="../../images/uchyceni_klobouku.png" /></p>
+<h3 id="nadobka-na-bonbony">Nádobka na bonbóny</h3>
+<table>
+<thead>
+<tr>
+<th>Díl</th>
+<th>Soubor</th>
+<th>Počet kusů</th>
+<th>Poznámka</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nádobka na bonbóny</td>
+<td><code>krabicka_bonbony.stl</code> / <code>Krabička_Bombóny.step</code></td>
+<td>1</td>
+<td>Pro rozvoz balených bonbónů</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Nádobka na bonbóny" src="../../images/miska.png" /></p>
+<h2 id="doporucene-nastaveni-tisku">Doporučené nastavení tisku</h2>
+<table>
+<thead>
+<tr>
+<th>Parametr</th>
+<th>Hodnota</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Materiál</td>
+<td>PLA bílý (Prusament PLA Pristine White)</td>
+</tr>
+<tr>
+<td>Tryska</td>
+<td>0.4 mm</td>
+</tr>
+<tr>
+<td>Výška vrstvy</td>
+<td>0.2 mm</td>
+</tr>
+<tr>
+<td>Výplň</td>
+<td>20 %</td>
+</tr>
+<tr>
+<td>Perimetry</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Podpěry</td>
+<td>Kde je potřeba (převisy &gt; 45°)</td>
+</tr>
+<tr>
+<td>Teplota trysky</td>
+<td>215 °C (dle doporučení výrobce filamentu)</td>
+</tr>
+<tr>
+<td>Teplota podložky</td>
+<td>60 °C</td>
+</tr>
+</tbody>
+</table>
+<!-- TODO: Ověřit a upravit nastavení podle skutečných tiskových profilů -->
+
+<h2 id="priprava-po-tisku">Příprava po tisku</h2>
+<ol>
+<li><strong>Odstraňte podpěry</strong> – opatrně odlomte nebo odřízněte</li>
+<li><strong>Začistěte hrany</strong> – pilníkem nebo brusným papírem odstraňte otřepy</li>
+<li><strong>Zkontrolujte rozměry</strong> – zejména otvory pro ložiska a motory:</li>
+<li>Ložisko ZKL 626-2Z (vnější průměr 19 mm) musí do otvoru pasovat těsně</li>
+<li>Motor JGY-370 musí sedět v úchytu bez vůle</li>
+<li><strong>Zkušební sestavení</strong> – zkuste nasadit ložiska a motory nanečisto (bez pájení a kabelů)</li>
+</ol>
+<h2 id="tipy">Tipy</h2>
+<ul>
+<li>Pokud je otvor na ložisko příliš těsný, opatrně ho rozšiřte kulatým pilníkem</li>
+<li>Pokud je naopak příliš volný, lze použít kapku sekundového lepidla</li>
+<li>PLA je citlivé na teplo – nenechávejte díly na přímém slunci nebo v autě</li>
+<li>Při tisku větších dílů může pomoci adhesive (lepidlo na podložku) proti odlepování</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../rozborka/" class="btn btn-neutral float-left" title="Rozborka větráku"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../kostym/" class="btn btn-neutral float-right" title="Kostým a dekorace">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/BrnoMarsRover/myMachine-Fan" class="fa fa-code-fork" style="color: #fcfcfc"> BrnoMarsRover/myMachine-Fan</a>
+        </span>
+    
+    
+      <span><a href="../rozborka/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../kostym/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
