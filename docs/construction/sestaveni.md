@@ -24,9 +24,12 @@ Tento návod popisuje krok za krokem, jak sestavit celé zařízení od jednotli
 
 1. Vložte oba motory **JGY-370** do připravených úchytů v podvozku
 2. Připevněte motory šroubky ze spodní strany za pomoci dodaných plasových držáků
-3. Dle výkresu obrobte příruby spojující osu motoru s kolem
+3. Dle [výkresu spojky](https://github.com/BrnoMarsRover/myMachine-Fan/blob/main/3D/Spojka.pdf) obrobte příruby spojující osu motoru s kolem
 4. Sestavte uchycení kola, zajistěte ložisko 3D tištěným dílem a červíky zajistěte kolo a osu motoru
-4. Zkontrolujte, že se kola volně otáčejí a nebrzdí o podvozek
+
+![Adaptér osy motoru](../images/motor_osa.png)
+
+5. Zkontrolujte, že se kola volně otáčejí a nebrzdí o podvozek
 
 ## Krok 3: Příprava elektroniky na prototypovacím PCB
 
@@ -109,8 +112,7 @@ Toto je klíčový krok – sloupek spojuje podvozek s hlavicí větráku a vedo
 
 ## Krok 10: Nádobka na bonbóny
 
-<!-- TODO: Doplnit popis umístění nádobky – je součástí 3D tištěných dílů -->
-<!-- TODO: Přidat fotku nádobky na bonbóny -->
+![Nádobka na bonbóny](../images/miska.png)
 
 1. Připevněte 3D tištěnou nádobku na bonbóny na určené místo na zařízení
 2. V procesu je třeba provrtat sloupek a 3D tištěný díl zajistit osičkou. Bylo by dobré na její konce opatřit závity a zajistit ji tak proti vysunutí

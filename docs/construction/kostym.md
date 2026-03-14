@@ -16,7 +16,9 @@ Aby větrák vypadal jako mexičan (podle původního návrhu dětí z Milotic),
 
 Klobouk je uchycen na vršku hlavice větráku přes **ložisko ZKL 51101A**. Díky ložisku se klobouk může volně otáčet nezávisle na hlavici – při běžícím ventilátoru se klobouk nebude roztáčet spolu s ním.
 
-<!-- TODO: Přidat fotku/nákres uchycení ložiska na hlavici -->
+![Uchycení klobouku](../images/uchyceni_klobouku.png)
+
+3D tištěné díly pro uchycení klobouku (lůžko ložiska, krytka, zarážka) viz [3D tištěné díly](3d_tisk.md). Výkres klobouku: [`klobouk_vykres.pdf`](https://github.com/BrnoMarsRover/myMachine-Fan/blob/main/3D/klobouk_vykres.pdf).
 
 ### Materiál
 
@@ -42,7 +44,7 @@ Je zcela na vaší kreativitě a možnostech.
 
 Nádobka je součástí 3D tištěných dílů (viz [3D tisk](3d_tisk.md)). Slouží pro rozvoz balených bonbónů.
 
-<!-- TODO: Doplnit rozměry nádobky, kam se připevňuje, fotku -->
+![Nádobka na bonbóny](../images/miska.png)
 
 ### Požadavky na nádobku
 

@@ -2,24 +2,54 @@
 
 Několik dílů zařízení je vyrobeno 3D tiskem. Tato stránka popisuje seznam dílů, kde najít soubory a doporučené nastavení tisku.
 
-**Poznámka:** Podvozek bude pro střední školu již **vytištěn a dodán**, protože vyžaduje velkoformátovou 3D tiskárnu. Ostatní menší díly (nádobka na bonbóny apod.) si lze vytisknout na běžné tiskárně.
+**Poznámka:** Podvozek bude pro střední školu již **vytištěn a dodán**, protože vyžaduje velkoformátovou 3D tiskárnu. Ostatní menší díly si lze vytisknout na běžné tiskárně.
 
-## STL soubory
+## Soubory pro tisk a výkresy
 
-Všechny soubory pro tisk najdete ve složce [`stl/`](https://github.com/BrnoMarsRover/myMachine-Fan/tree/main/stl) v repozitáři.
+Všechny soubory najdete ve složce [`3D/`](https://github.com/BrnoMarsRover/myMachine-Fan/tree/main/3D) v repozitáři. K dispozici jsou STL soubory (pro tisk) i STEP soubory (pro úpravu v CAD).
 
-<!-- TODO: Ověřit, že složka stl/ existuje v repozitáři a obsahuje všechny soubory -->
+Technické výkresy obráběných dílů:
+
+- [`Spojka.pdf`](https://github.com/BrnoMarsRover/myMachine-Fan/blob/main/3D/Spojka.pdf) – výkres příruby (spojky) mezi osou motoru a kolem
+- [`klobouk_vykres.pdf`](https://github.com/BrnoMarsRover/myMachine-Fan/blob/main/3D/klobouk_vykres.pdf) – výkres klobouku
+- [`tyc_vetrak.pdf`](https://github.com/BrnoMarsRover/myMachine-Fan/blob/main/3D/tyc_vetrak.pdf) – výkres tyče větráku
 
 ## Seznam 3D tištěných dílů
 
-<!-- TODO: Doplnit kompletní seznam dílů podle skutečnosti a přidat fotky -->
+### Podvozek (dodán vytištěný)
 
 | Díl | Soubor | Počet kusů | Poznámka |
 |-----|--------|-----------|----------|
-| Podvozek – spodní díl | <!-- TODO --> | 1 | Obsahuje úchyty pro motory a kuličky. **Dodán vytištěný.** |
-| Podvozek – horní díl | <!-- TODO --> | 1 | Kryt elektroniky. **Dodán vytištěný.** |
-| Nádobka na bonbóny | <!-- TODO --> | 1 | Pro rozvoz bonbónů |
-<!-- TODO: Doplnit další díly (držáky senzorů, adaptéry, atd.) -->
+| Podvozek | `Podvozek No History.step` | 1 | **Dodán vytištěný.** Velkoformátový tisk. |
+
+### Kola a pohon
+
+| Díl | Soubor | Počet kusů | Poznámka |
+|-----|--------|-----------|----------|
+| Kolo | `kolo.stl` / `kolo.step` | 2 | Kola na motory |
+| Guma na kolo | `guma_final.stl` | 2 | Pryžový (TPU) oběžný pás na kolo |
+| Adaptér osy motoru | `motor_osa.stl` / `motor_osa.step` | 2 | Spojení osy motoru JGY-370 s kolem |
+
+![Adaptér osy motoru](../images/motor_osa.png)
+
+### Uchycení klobouku
+
+| Díl | Soubor | Počet kusů | Poznámka |
+|-----|--------|-----------|----------|
+| Uchycení klobouku | `uchyceni_klobouku.stl` / `.step` | 1 | Hlavní díl pro nasazení sombrera |
+| Uchycení ložiska klobouku | `uchyceni_loziska_klobouku.stl` | 1 | Lůžko pro ložisko ZKL 51101A |
+| Krytka ložiska | `krytka_lozisko.stl` / `.step` | 1 | Krytka zajišťující ložisko |
+| Zarážka klobouku | `zarazka_klobouku.stl` | 1 | Zajišťuje klobouk proti sejmutí |
+
+![Uchycení klobouku](../images/uchyceni_klobouku.png)
+
+### Nádobka na bonbóny
+
+| Díl | Soubor | Počet kusů | Poznámka |
+|-----|--------|-----------|----------|
+| Nádobka na bonbóny | `krabicka_bonbony.stl` / `Krabička_Bombóny.step` | 1 | Pro rozvoz balených bonbónů |
+
+![Nádobka na bonbóny](../images/miska.png)
 
 ## Doporučené nastavení tisku
 
@@ -51,5 +81,3 @@ Všechny soubory pro tisk najdete ve složce [`stl/`](https://github.com/BrnoMar
 - Pokud je naopak příliš volný, lze použít kapku sekundového lepidla
 - PLA je citlivé na teplo – nenechávejte díly na přímém slunci nebo v autě
 - Při tisku větších dílů může pomoci adhesive (lepidlo na podložku) proti odlepování
-
-<!-- TODO: Přidat fotky vytištěných a očištěných dílů -->
